@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>
+            Memory Sequence Game
+        </title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/third_template.css') }}">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    </head>
+    <body>
+        <div class="container">
+            <div class="container_form" style="margin-top:50px;">
+                <img style="cursor: pointer;" class="logo" src="{{url_for('static', filename='img/logo.png')}}" align="right" onclick="location.href = '/'">
+                <select style="margin-top: 10px;" class="language" id="selectBox" onchange="changeFunc();">
+                    <option value="italian">Italian</option>
+                    <option value="english">English</option>
+                </select> <br> 
+                <button style="margin-top: 5px;" id="play" class="giocaAncora" value="Gioca" onclick="location.href = 'home'" aria-label='Home' data-balloon-pos='down'>Home</button>
+                <p> <span id="description" style="margin-left: 310px; font: 25px/1 'Acme', sans-serif;">  </span>  </p>
+                <div class="row_margin">
+                    <table class="cinereousTable2" id="table">
+                        <tr>
+                            <td> </td>
+                            <td id="table_player">Giocatore</td>
+                            <td id="table_score">Punteggio</td>
+                        </tr> 
+                    </table>
+                </div>
+            </div>
+        </div> 
+    </body>
+    <script>
+        const players = {{players|tojson}}
+        const user = {{user|tojson}}
+        const resObj_it = {{resObj_it|tojson}}
+        const resObj_en = {{resObj_en|tojson}}
+        const actual_language = {{actual_language|tojson}}
+        let data = {}
+        let selectBox = document.getElementById("selectBox");
+        let selectedValue = actual_language["language"]
+        let language_json = get_json(selectedValue)
+        document.getElementById("description").innerHTML = language_json.end.description
+        let table = document.getElementById("table");
+        var index = players.findIndex(obj => obj.player==user["player"]);
+        if(index == -1){
+            players.push({'level':parseInt(user["level"]),'player': parseInt(user["player"]),'score':parseInt(user["score"])})
+        }else{
+            players[index] = {'level':parseInt(user["level"]),'player': parseInt(user["player"]),'score':parseInt(user["score"])}
+        }
+        players.sort((a,b)=> (b.score - a.score || a.player - b.player));
+        var index = players.findIndex(obj => obj.player==user["player"]);
+        let itr = (players.length<10) ? players.length : 10
+        for(let i=0; i<itr;i++){
+            let tr = document.createElement("tr")
+            let td = document.createElement("td")
+            td.innerHTML = i+1
+            tr.appendChild(td)
+                        
+            td = document.createElement("td")
+            if(index==i){
+                tr.classList.add("selected");
+                td.innerHTML = language_json.end.table[2] // "User " + players[i]['player']  
+                td.id = index
+            }else{
+                td.innerHTML = "User " + players[i]['player'] // language_json.end.table[3]
+            }
+            tr.appendChild(td)
+            td = document.createElement("td")
+            td.innerHTML = players[i]['score']
+            tr.appendChild(td)
+            table.appendChild(tr)
+        }
+                    
+        let tr2 = document.createElement("tr")
+        td = document.createElement("td")
+        td.innerHTML = "..."
+        tr2.appendChild(td)
+        td = document.createElement("td")
+        tr2.appendChild(td)
+        td = document.createElement("td")
+        tr2.appendChild(td)
+
+        if(index >= 10){
+            tr = document.createElement("tr")
+            tr.classList.add("selected");
+            td = document.createElement("td")
+            td.innerHTML = index+1
+            tr.appendChild(td)
+            td = document.createElement("td")
+            td.id = index
+            td.innerHTML = language_json.end.table[2] // "User " + players[index]['player']  
+            tr.appendChild(td)
+            td = document.createElement("td")
+            td.innerHTML = players[index]['score']
+            tr.appendChild(td)
+
+            if(index == 10){
+                table.appendChild(tr)
+                table.appendChild(tr2) 
+            }else{
+                table.appendChild(tr2)
+                table.appendChild(tr)                          
+            }
+        }else{
+            table.appendChild(tr2) 
+        }
+        if(selectedValue != "italian"){
+            changeLanguage(language_json)
+            selectBox.selectedIndex = indexMatchingText(selectBox, actual_language["language"])
+        }
+
+        function indexMatchingText(box, text) {
+            for(let i=0; i<box.options.length;i++) {
+                if (box.options[i].attributes[0].nodeValue === text){
+                    return i;
+                }
+            }
+        }
+
+        function get_json(selectedValue){
+            if (selectedValue === "italian") {
+                return resObj_it
+            }
+            else if(selectedValue === "english"){
+                return resObj_en
+            }
+        }
+
+        function changeFunc(){
+            selectedValue = selectBox.options[selectBox.selectedIndex].value;
+            data["language"] = selectedValue
+            language_json = get_json(selectedValue)
+            changeLanguage(language_json)
+            $.ajax({
+                url:"/language",
+                type:"POST",
+                contentType: "application/json",
+                data: JSON.stringify(JSON.stringify(data))
+            });
+        }
+        
+        function changeLanguage(resObj_show){
+            document.getElementById("table_player").innerHTML = resObj_show.end.table[0]
+            document.getElementById("table_score").innerHTML = resObj_show.end.table[1]
+            document.getElementById("description").innerHTML = resObj_show.end.description
+
+            document.getElementById(index).innerHTML = resObj_show.end.table[2]
+        }
+        
+    </script>
+</html>
+
+
+
+

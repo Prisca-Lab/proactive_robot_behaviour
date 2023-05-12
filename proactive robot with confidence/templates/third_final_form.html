@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>
+            Memory Sequence Game
+        </title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/third_template.css') }}">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Patrick+Hand' rel='stylesheet'>
+    </head>
+    <body>
+        <div class="container">
+            <div class="container_test2" id="div" style="margin-top:50px;">
+                <select style="margin-top: 10px;" class="language" id="selectBox" onchange="changeFunc();">
+                    <option value="italian">Italian</option>
+                    <option value="english">English</option>
+                </select>
+                <img id="logo" class="logoForm" src="{{url_for('static', filename='img/logo.png')}}" align="right"> <br>
+
+                <p> <br> <span id="description" style="font: 20px/1 'Patrick Hand', sans-serif;">  </span>  </p>
+                <table  id="first" style="font: 20px/1 'Patrick Hand', sans-serif;" WIDTH="99%" BORDER="1" CELLPADDING="5" align="center">
+                    <tr>
+                        <td style="border: 0;" align="left"></td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">1</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">2</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">3</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">4</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">5</td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff; width:650px" align="left" id="1"> <label style="color: red;"> </label> </td>
+                        <td align="center"><input TYPE="radio" name="Q1" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q1" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q1" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q1" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q1" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="2"> </td>
+                        <td align="center"><input TYPE="radio" name="Q2" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q2" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q2" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q2" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q2" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="3"> </td>
+                        <td align="center"><input TYPE="radio" name="Q3" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q3" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q3" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q3" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q3" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="4"> </td>
+                        <td align="center"><input TYPE="radio" name="Q4" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q4" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q4" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q4" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q4" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="5"> </td>
+                        <td align="center"><input TYPE="radio" name="Q5" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q5" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q5" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q5" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q5" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="6"> </td>
+                        <td align="center"><input TYPE="radio" name="Q6" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q6" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q6" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q6" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q6" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="7"> </td>
+                        <td align="center"><input TYPE="radio" name="Q7" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q7" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q7" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q7" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q7" value="5"></td>
+                    </tr>
+                </table>
+                <br>
+                <table  id="second" style="font: 20px/1 'Patrick Hand', sans-serif;" WIDTH="99%" BORDER="1" CELLPADDING="5" align="center">
+                    <tr>
+                        <td style="border: 0;" align="left"></td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">1</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">2</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">3</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">4</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">5</td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff; width:650px" align="left" id="8"> </td>
+                        <td align="center"><input TYPE="radio" name="Q8" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q8" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q8" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q8" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q8" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="9"> </td>
+                        <td align="center"><input TYPE="radio" name="Q9" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q9" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q9" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q9" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q9" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="10"> </td>
+                        <td align="center"><input TYPE="radio" name="Q10" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q10" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q10" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q10" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q10" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="11"> </td>
+                        <td align="center"><input TYPE="radio" name="Q11" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q11" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q11" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q11" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q11" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="12"> </td>
+                        <td align="center"><input TYPE="radio" name="Q12" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q12" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q12" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q12" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q12" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="13"> </td>
+                        <td align="center"><input TYPE="radio" name="Q13" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q13" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q13" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q13" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q13" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="14"> </td>
+                        <td align="center"><input TYPE="radio" name="Q14" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q14" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q14" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q14" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q14" value="5"></td>
+                    </tr>
+                </table> <br>
+
+                <table  id="third" style="font: 20px/1 'Patrick Hand', sans-serif;" WIDTH="99%" BORDER="1" CELLPADDING="5" align="center">
+                    <tr>
+                        <td style="border: 0;" align="left"></td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">1</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">2</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">3</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">4</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">5</td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff; width:650px" align="left" id="15"> </td>
+                        <td align="center"><input TYPE="radio" name="Q15" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q15" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q15" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q15" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q15" value="5"></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #ffffff;" align="left" id="16"> </td>
+                            <td align="center"><input TYPE="radio" name="Q16" value="1"></td>
+                            <td align="center"><input TYPE="radio" name="Q16" value="2"></td>
+                            <td align="center"><input TYPE="radio" name="Q16" value="3"></td>
+                            <td align="center"><input TYPE="radio" name="Q16" value="4"></td>
+                            <td align="center"><input TYPE="radio" name="Q16" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="17"> </td>
+                        <td align="center"><input TYPE="radio" name="Q17" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q17" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q17" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q17" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q17" value="5"></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #ffffff;" align="left" id="18"> </td>
+                            <td align="center"><input TYPE="radio" name="Q18" value="1"></td>
+                            <td align="center"><input TYPE="radio" name="Q18" value="2"></td>
+                            <td align="center"><input TYPE="radio" name="Q18" value="3"></td>
+                            <td align="center"><input TYPE="radio" name="Q18" value="4"></td>
+                            <td align="center"><input TYPE="radio" name="Q18" value="5"></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #ffffff;" align="left" id="19"> </td>
+                            <td align="center"><input TYPE="radio" name="Q19" value="1"></td>
+                            <td align="center"><input TYPE="radio" name="Q19" value="2"></td>
+                            <td align="center"><input TYPE="radio" name="Q19" value="3"></td>
+                            <td align="center"><input TYPE="radio" name="Q19" value="4"></td>
+                            <td align="center"><input TYPE="radio" name="Q19" value="5"></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #ffffff;" align="left" id="20"> </td>
+                            <td align="center"><input TYPE="radio" name="Q20" value="1"></td>
+                            <td align="center"><input TYPE="radio" name="Q20" value="2"></td>
+                            <td align="center"><input TYPE="radio" name="Q20" value="3"></td>
+                            <td align="center"><input TYPE="radio" name="Q20" value="4"></td>
+                            <td align="center"><input TYPE="radio" name="Q20" value="5"></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #ffffff;" align="left" id="21"> </td>
+                            <td align="center"><input TYPE="radio" name="Q21" value="1"></td>
+                            <td align="center"><input TYPE="radio" name="Q21" value="2"></td>
+                            <td align="center"><input TYPE="radio" name="Q21" value="3"></td>
+                            <td align="center"><input TYPE="radio" name="Q21" value="4"></td>
+                            <td align="center"><input TYPE="radio" name="Q21" value="5"></td>
+                    </tr>
+                </table> <br>
+                
+                <table  id="fourth" style="font: 20px/1 'Patrick Hand', sans-serif;" WIDTH="99%" BORDER="1" CELLPADDING="5" align="center">
+                    <tr>
+                        <td style="border: 0;" align="left"></td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">1</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">2</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">3</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">4</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">5</td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff; width:650px" align="left" id="22"> </td>
+                        <td align="center"><input TYPE="radio" name="Q22" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q22" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q22" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q22" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q22" value="5"></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #ffffff;" align="left" id="23"> </td>
+                            <td align="center"><input TYPE="radio" name="Q23" value="1"></td>
+                            <td align="center"><input TYPE="radio" name="Q23" value="2"></td>
+                            <td align="center"><input TYPE="radio" name="Q23" value="3"></td>
+                            <td align="center"><input TYPE="radio" name="Q23" value="4"></td>
+                            <td align="center"><input TYPE="radio" name="Q23" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="24"> </td>
+                        <td align="center"><input TYPE="radio" name="Q24" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q24" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q24" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q24" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q24" value="5"></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #ffffff;" align="left" id="25"> </td>
+                            <td align="center"><input TYPE="radio" name="Q25" value="1"></td>
+                            <td align="center"><input TYPE="radio" name="Q25" value="2"></td>
+                            <td align="center"><input TYPE="radio" name="Q25" value="3"></td>
+                            <td align="center"><input TYPE="radio" name="Q25" value="4"></td>
+                            <td align="center"><input TYPE="radio" name="Q25" value="5"></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #ffffff;" align="left" id="26"> </td>
+                            <td align="center"><input TYPE="radio" name="Q26" value="1"></td>
+                            <td align="center"><input TYPE="radio" name="Q26" value="2"></td>
+                            <td align="center"><input TYPE="radio" name="Q26" value="3"></td>
+                            <td align="center"><input TYPE="radio" name="Q26" value="4"></td>
+                            <td align="center"><input TYPE="radio" name="Q26" value="5"></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #ffffff;" align="left" id="27"> </td>
+                            <td align="center"><input TYPE="radio" name="Q27" value="1"></td>
+                            <td align="center"><input TYPE="radio" name="Q27" value="2"></td>
+                            <td align="center"><input TYPE="radio" name="Q27" value="3"></td>
+                            <td align="center"><input TYPE="radio" name="Q27" value="4"></td>
+                            <td align="center"><input TYPE="radio" name="Q27" value="5"></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #ffffff;" align="left" id="28"> </td>
+                            <td align="center"><input TYPE="radio" name="Q28" value="1"></td>
+                            <td align="center"><input TYPE="radio" name="Q28" value="2"></td>
+                            <td align="center"><input TYPE="radio" name="Q28" value="3"></td>
+                            <td align="center"><input TYPE="radio" name="Q28" value="4"></td>
+                            <td align="center"><input TYPE="radio" name="Q28" value="5"></td>
+                    </tr>
+                </table> <br>
+
+                <table  id="proactivity" style="font: 20px/1 'Patrick Hand', sans-serif;" WIDTH="99%" BORDER="1" CELLPADDING="5" align="center">
+                    <tr>
+                        <td style="border: 0;" align="left"></td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">1</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">2</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">3</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">4</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">5</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">6</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">7</td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff; width:600px" align="left" id="29"> </td>
+                        <td align="center"><input TYPE="radio" name="Q29" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q29" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q29" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q29" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q29" value="5"></td>
+                        <td align="center"><input TYPE="radio" name="Q29" value="6"></td>
+                        <td align="center"><input TYPE="radio" name="Q29" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #ffffff;" align="left" id="30"> </td>
+                            <td align="center"><input TYPE="radio" name="Q30" value="1"></td>
+                            <td align="center"><input TYPE="radio" name="Q30" value="2"></td>
+                            <td align="center"><input TYPE="radio" name="Q30" value="3"></td>
+                            <td align="center"><input TYPE="radio" name="Q30" value="4"></td>
+                            <td align="center"><input TYPE="radio" name="Q30" value="5"></td>
+                            <td align="center"><input TYPE="radio" name="Q30" value="6"></td>
+                            <td align="center"><input TYPE="radio" name="Q30" value="7"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="31"> </td>
+                        <td align="center"><input TYPE="radio" name="Q31" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q31" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q31" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q31" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q31" value="5"></td>
+                        <td align="center"><input TYPE="radio" name="Q31" value="6"></td>
+                        <td align="center"><input TYPE="radio" name="Q31" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #ffffff;" align="left" id="32"> </td>
+                            <td align="center"><input TYPE="radio" name="Q32" value="1"></td>
+                            <td align="center"><input TYPE="radio" name="Q32" value="2"></td>
+                            <td align="center"><input TYPE="radio" name="Q32" value="3"></td>
+                            <td align="center"><input TYPE="radio" name="Q32" value="4"></td>
+                            <td align="center"><input TYPE="radio" name="Q32" value="5"></td>
+                            <td align="center"><input TYPE="radio" name="Q32" value="6"></td>
+                            <td align="center"><input TYPE="radio" name="Q32" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #ffffff;" align="left" id="33"> </td>
+                            <td align="center"><input TYPE="radio" name="Q33" value="1"></td>
+                            <td align="center"><input TYPE="radio" name="Q33" value="2"></td>
+                            <td align="center"><input TYPE="radio" name="Q33" value="3"></td>
+                            <td align="center"><input TYPE="radio" name="Q33" value="4"></td>
+                            <td align="center"><input TYPE="radio" name="Q33" value="5"></td>
+                            <td align="center"><input TYPE="radio" name="Q33" value="6"></td>
+                            <td align="center"><input TYPE="radio" name="Q33" value="7"></td>
+                    </tr>
+                    <tr>
+                        <td style="background: #ffffff;" align="left" id="34"> </td>
+                            <td align="center"><input TYPE="radio" name="Q34" value="1"></td>
+                            <td align="center"><input TYPE="radio" name="Q34" value="2"></td>
+                            <td align="center"><input TYPE="radio" name="Q34" value="3"></td>
+                            <td align="center"><input TYPE="radio" name="Q34" value="4"></td>
+                            <td align="center"><input TYPE="radio" name="Q34" value="5"></td>
+                            <td align="center"><input TYPE="radio" name="Q34" value="6"></td>
+                            <td align="center"><input TYPE="radio" name="Q34" value="7"></td>
+                    </tr>
+                </table>
+                <button style="margin-left:370px; margin-top:10px;" id="send" type="button" onclick="return submitAll()"" class="gioca" value="Invia" aria-label='Invia risposte' data-balloon-pos='up'>Invia</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        let selectBox = document.getElementById("selectBox");
+        const resObj_it = {{resObj_it|tojson}}
+        const resObj_en = {{resObj_en|tojson}}
+        const actual_language = {{actual_language|tojson}}
+        let data ={}
+        let playPressed = false
+        let selectedValue = actual_language["language"]
+        let language_json = get_json(selectedValue)
+        document.getElementById("description").innerHTML = language_json.final_form.description
+        set_question()
+        if(selectedValue != "italian"){
+            changeLanguage(language_json)
+            selectBox.selectedIndex = indexMatchingText(selectBox, actual_language["language"])
+        }
+
+        function set_question(){
+            for(let i=1; i<8;i++) {
+                var num = i + ". "
+                document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.final_form.first[i-1]
+            }
+            for(let i=8; i<15;i++) {
+                var num = (i-7) + ". "
+                document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.final_form.second[i-8]
+            }
+            for(let i=15; i<22;i++) {
+                var num = (i-14) + ". "
+                document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.final_form.third[i-15]
+            }
+            for(let i=22; i<29;i++) {
+                var num = (i-21) + ". "
+                document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.final_form.fourth[i-22]
+            }
+            for(let i=29; i<35;i++) {
+                var num = (i-28) + ". "
+                document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.final_form.proactivity[i-29]
+            }
+        }
+
+        function indexMatchingText(box, text) {
+            for(let i=0; i<box.options.length;i++) {
+                if (box.options[i].attributes[0].nodeValue === text){
+                    return i;
+                }
+            }
+        }
+
+        function get_json(selectedValue){
+            if (selectedValue === "italian") {
+                return resObj_it
+            }
+            else if(selectedValue === "english"){
+                return resObj_en
+            }
+        }
+
+        function changeFunc(){
+            selectedValue = selectBox.options[selectBox.selectedIndex].value;
+            data["language"] = selectedValue
+            language_json = get_json(selectedValue)
+            changeLanguage(language_json)
+            $.ajax({
+                url:"/language",
+                type:"POST",
+                contentType: "application/json",
+                data: JSON.stringify(JSON.stringify(data))
+            });
+        }
+
+        function changeLanguage_question(resObj_show){
+            for(let i=1; i<8;i++) {
+                var num = i + ". "
+                if(playPressed){
+                    if(document.querySelector('input[name="Q' + i + '"]:checked') == null){
+                            document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.final_form.first[i-1].fontcolor("red")
+                    }else{
+                        document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.final_form.first[i-1]
+                    }
+                }else{
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.final_form.first[i-1]
+                }
+            }
+            for(let i=8; i<15;i++) {
+                var num = (i-7) + ". "
+                if(playPressed){
+                    if(document.querySelector('input[name="Q' + i + '"]:checked') == null){
+                            document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.final_form.second[i-8].fontcolor("red")
+                    }else{
+                        document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.final_form.second[i-8]
+                    }
+                }else{
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.final_form.second[i-8]
+                }
+            }
+            for(let i=15; i<22;i++) {
+                var num = (i-14) + ". "
+                if(playPressed){
+                    if(document.querySelector('input[name="Q' + i + '"]:checked') == null){
+                            document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.final_form.third[i-15].fontcolor("red")
+                    }else{
+                        document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.final_form.third[i-15]
+                    }
+                }else{
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.final_form.third[i-15]
+                }
+            }
+            for(let i=22; i<29;i++) {
+                var num = (i-21) + ". "
+                if(playPressed){
+                    if(document.querySelector('input[name="Q' + i + '"]:checked') == null){
+                            document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.final_form.fourth[i-22].fontcolor("red")
+                    }else{
+                        document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.final_form.fourth[i-22]
+                    }
+                }else{
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.final_form.fourth[i-22]
+                }
+            }
+            for(let i=29; i<35;i++) {
+                var num = (i-28) + ". "
+                if(playPressed){
+                    if(document.querySelector('input[name="Q' + i + '"]:checked') == null){
+                            document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.final_form.proactivity[i-29].fontcolor("red")
+                    }else{
+                        document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.final_form.proactivity[i-29]
+                    }
+                }else{
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.final_form.proactivity[i-29]
+                }
+            }
+        }
+
+        function changeLanguage(resObj_show){
+            document.getElementById("send").innerHTML = resObj_show.final_form.sendButton[0]
+            document.getElementById("send").setAttribute('aria-label', resObj_show.final_form.sendButton[1])
+            changeLanguage_question(resObj_show)
+            document.getElementById("description").innerHTML = resObj_show.final_form.description
+        }
+
+        function checkTest(){
+            let check = true
+            for(let i=1; i<8;i++) {
+                var num = i + ". "
+                if(document.querySelector('input[name="Q' + i + '"]:checked') == null){
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.final_form.first[i-1].fontcolor("red")
+                    check = false
+                }else{
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.final_form.first[i-1]
+                }
+            }
+
+            for(let i=8; i<15;i++) {
+                var num = (i-7) + ". "
+                if(document.querySelector('input[name="Q' + i + '"]:checked') == null){
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.final_form.second[i-8].fontcolor("red")
+                    check = false
+                }else{
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.final_form.second[i-8]
+                }
+            }
+            for(let i=15; i<22;i++) {
+                var num = (i-14) + ". "
+                if(document.querySelector('input[name="Q' + i + '"]:checked') == null){
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.final_form.third[i-15].fontcolor("red")
+                    check = false
+                }else{
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.final_form.third[i-15]
+                }
+            }
+            for(let i=22; i<29;i++) {
+                var num = (i-21) + ". "
+                if(document.querySelector('input[name="Q' + i + '"]:checked') == null){
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.final_form.fourth[i-22].fontcolor("red")
+                    check = false
+                }else{
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.final_form.fourth[i-22]
+                }
+            }
+            for(let i=29; i<35;i++) {
+                var num = (i-28) + ". "
+                if(document.querySelector('input[name="Q' + i + '"]:checked') == null){
+                    check = false
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.final_form.proactivity[i-29].fontcolor("red")
+                }else{
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.final_form.proactivity[i-29]
+                }
+            }
+            return check
+        }
+
+        function get_answer(){
+            let answer = {}
+            for(let i=1; i<35;i++) {
+                answer['Q' + i] = parseInt(document.querySelector('input[name="Q' + i + '"]:checked').value)
+            }
+            return answer
+        }
+
+        function submitAll(){
+            playPressed = true
+            if(checkTest()){
+                let answer = get_answer()
+                $.ajax({
+                url:"/save_data",
+                type:"POST",
+                contentType: "application/json",
+                data: JSON.stringify(JSON.stringify(answer)),
+                success: function(result) {
+                    console.log("Result:");
+                    console.log(result);
+                    location.href = "end";}
+                })      
+            }
+        }
+    </script>
+</html>

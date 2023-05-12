@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+
+<BIF VERSION="0.3">
+<NETWORK>
+
+<!-- Variables -->
+<VARIABLE TYPE="nature">
+	<NAME>Confidence</NAME>
+	<PROPERTY>Confidence</PROPERTY>
+	<OUTCOME>Notification</OUTCOME>
+	<OUTCOME>Tip</OUTCOME>
+	<OUTCOME>Action</OUTCOME>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Forecast</NAME>
+	<PROPERTY>Forecast</PROPERTY>
+	<OUTCOME>Notification</OUTCOME>
+	<OUTCOME>Tip</OUTCOME>
+	<OUTCOME>Action</OUTCOME>
+</VARIABLE>
+
+<VARIABLE TYPE="decision">
+	<NAME>Decision Confidence</NAME>
+	<PROPERTY>Decision Confidence</PROPERTY>
+	<OUTCOME>Notification</OUTCOME>
+	<OUTCOME>Tip</OUTCOME>
+	<OUTCOME>Action</OUTCOME>
+</VARIABLE>
+
+<VARIABLE TYPE="utility">
+	<NAME>Utility</NAME>
+	<PROPERTY>Utility</PROPERTY>
+	<OUTCOME>0</OUTCOME>
+</VARIABLE>
+
+<!-- Probability distributions -->
+<DEFINITION>
+	<FOR>Confidence</FOR>
+	<TABLE>0.368421 0.298246 0.333333 </TABLE>
+</DEFINITION>
+<DEFINITION>
+	<FOR>Forecast</FOR>
+	<GIVEN>Confidence</GIVEN>
+	<TABLE>0.6 0.1 0.3 0.3 0.6 0.1 0 0.1 0.9 </TABLE>
+</DEFINITION>
+<DEFINITION>
+	<FOR>Decision Confidence</FOR>
+	<GIVEN>Forecast</GIVEN>
+</DEFINITION>
+<DEFINITION>
+	<FOR>Utility</FOR>
+	<GIVEN>Confidence</GIVEN>
+	<GIVEN>Decision Confidence</GIVEN>
+	<TABLE>100 -50 -50 50 100 -50 0 50 100 </TABLE>
+</DEFINITION>
+
+</NETWORK>
+</BIF>

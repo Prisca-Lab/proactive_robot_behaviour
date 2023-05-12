@@ -1,0 +1,460 @@
+{
+  "eta": "24",
+  "genere": "Femmina",
+  "formazione": "Universita",
+  "dgd_test": {
+    "Q1": 3,
+    "Q10": 3,
+    "Q11": 3,
+    "Q12": 3,
+    "Q13": 3,
+    "Q14": 3,
+    "Q15": 3,
+    "Q16": 3,
+    "Q2": 3,
+    "Q3": 3,
+    "Q4": 3,
+    "Q5": 3,
+    "Q6": 3,
+    "Q7": 3,
+    "Q8": 3,
+    "Q9": 3
+  },
+  "score_ranking": [
+    {
+      "level": 26,
+      "player": 4,
+      "score": 237
+    },
+    {
+      "level": 26,
+      "player": 8,
+      "score": 160
+    },
+    {
+      "level": 26,
+      "player": 1,
+      "score": 115
+    },
+    {
+      "level": 26,
+      "player": 7,
+      "score": 95
+    },
+    {
+      "level": 5,
+      "player": 10,
+      "score": 85
+    },
+    {
+      "level": 26,
+      "player": 6,
+      "score": 55
+    },
+    {
+      "level": 26,
+      "player": 9,
+      "score": 35
+    },
+    {
+      "level": 26,
+      "player": 3,
+      "score": 30
+    },
+    {
+      "level": 2,
+      "player": 0,
+      "score": 0
+    },
+    {
+      "level": 26,
+      "player": 2,
+      "score": 0
+    },
+    {
+      "level": 26,
+      "player": 5,
+      "score": -15
+    }
+  ],
+  "partita": {
+    "livello_max": 26,
+    "livello": {
+      "1": {
+        "n_sequenza": 4,
+        "n_carte": 4,
+        "ripetizione": 0,
+        "n_errori": 1,
+        "n_aiuti": 0,
+        "orario_inizio": "09:46:17:981",
+        "suggerimenti_abilitati": null,
+        "sequenza": {
+          "0": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "09:46:24:860"
+              }
+            }
+          },
+          "1": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "09:46:25:599"
+              }
+            }
+          },
+          "2": {
+            "mossa": {
+              "0": {
+                "tipo": "Errore",
+                "orario": "09:46:26:67"
+              },
+              "1": {
+                "tipo": "Corrispondenza",
+                "orario": "09:46:26:473"
+              }
+            }
+          },
+          "3": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "09:46:27:43"
+              }
+            }
+          }
+        },
+        "tempo_parziale": 9.061,
+        "orario_fine": "09:46:27:43",
+        "terminato": 1,
+        "score_parziale": 35
+      },
+      "2": {
+        "n_sequenza": 4,
+        "n_carte": 5,
+        "ripetizione": 0,
+        "n_errori": 19,
+        "n_aiuti": 0,
+        "orario_inizio": "09:46:55:698",
+        "suggerimenti_abilitati": null,
+        "sequenza": {
+          "0": {
+            "mossa": {
+              "0": {
+                "tipo": "Errore",
+                "orario": "09:47:02:577"
+              },
+              "1": {
+                "tipo": "Errore",
+                "orario": "09:47:03:17"
+              },
+              "2": {
+                "tipo": "Errore",
+                "orario": "09:47:03:211"
+              },
+              "3": {
+                "tipo": "Errore",
+                "orario": "09:47:03:396"
+              },
+              "4": {
+                "tipo": "Errore",
+                "orario": "09:47:03:574"
+              },
+              "5": {
+                "tipo": "Errore",
+                "orario": "09:47:03:828"
+              },
+              "6": {
+                "tipo": "Errore",
+                "orario": "09:47:04:228"
+              },
+              "7": {
+                "tipo": "Errore",
+                "orario": "09:47:04:526"
+              },
+              "8": {
+                "tipo": "Errore",
+                "orario": "09:47:04:739"
+              },
+              "9": {
+                "tipo": "Errore",
+                "orario": "09:47:05:187"
+              },
+              "10": {
+                "tipo": "Errore",
+                "orario": "09:47:05:369"
+              },
+              "11": {
+                "tipo": "Corrispondenza",
+                "orario": "09:47:05:942"
+              }
+            }
+          },
+          "1": {
+            "mossa": {
+              "0": {
+                "tipo": "Errore",
+                "orario": "09:47:07:543"
+              },
+              "1": {
+                "tipo": "Corrispondenza",
+                "orario": "09:47:08:290"
+              }
+            }
+          },
+          "2": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "09:47:09:503"
+              }
+            }
+          },
+          "3": {
+            "mossa": {
+              "0": {
+                "tipo": "Errore",
+                "orario": "09:47:11:832"
+              },
+              "1": {
+                "tipo": "Errore",
+                "orario": "09:47:12:295"
+              },
+              "2": {
+                "tipo": "Errore",
+                "orario": "09:47:12:569"
+              },
+              "3": {
+                "tipo": "Errore",
+                "orario": "09:47:12:859"
+              },
+              "4": {
+                "tipo": "Errore",
+                "orario": "09:47:13:255"
+              },
+              "5": {
+                "tipo": "Errore",
+                "orario": "09:47:14:223"
+              },
+              "6": {
+                "tipo": "Errore",
+                "orario": "09:47:15:187"
+              },
+              "7": {
+                "tipo": "Corrispondenza",
+                "orario": "09:47:19:504"
+              }
+            }
+          }
+        },
+        "tempo_parziale": 23.806,
+        "orario_fine": "09:47:19:504",
+        "terminato": 1,
+        "score_parziale": -55
+      },
+      "3": {
+        "n_sequenza": 4,
+        "n_carte": 5,
+        "ripetizione": 1,
+        "n_errori": 0,
+        "n_aiuti": 0,
+        "orario_inizio": "09:48:07:388",
+        "suggerimenti_abilitati": null,
+        "sequenza": {
+          "0": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "09:48:14:163"
+              }
+            }
+          },
+          "1": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "09:48:15:584"
+              }
+            }
+          },
+          "2": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "09:48:16:18"
+              }
+            }
+          },
+          "3": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "09:48:17:64"
+              }
+            }
+          }
+        },
+        "tempo_parziale": 9.676,
+        "orario_fine": "09:48:17:64",
+        "terminato": 1,
+        "score_parziale": 40
+      },
+      "4": {
+        "n_sequenza": 5,
+        "n_carte": 5,
+        "ripetizione": 0,
+        "n_errori": 3,
+        "n_aiuti": 0,
+        "orario_inizio": "09:48:20:808",
+        "suggerimenti_abilitati": null,
+        "sequenza": {
+          "0": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "09:48:27:13"
+              }
+            }
+          },
+          "1": {
+            "mossa": {
+              "0": {
+                "tipo": "Errore",
+                "orario": "09:48:27:977"
+              },
+              "1": {
+                "tipo": "Corrispondenza",
+                "orario": "09:48:28:752"
+              }
+            }
+          },
+          "2": {
+            "mossa": {
+              "0": {
+                "tipo": "Errore",
+                "orario": "09:48:30:330"
+              },
+              "1": {
+                "tipo": "Errore",
+                "orario": "09:48:31:11"
+              },
+              "2": {
+                "tipo": "Corrispondenza",
+                "orario": "09:48:31:500"
+              }
+            }
+          },
+          "3": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "09:48:32:100"
+              }
+            }
+          },
+          "4": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "09:48:32:737"
+              }
+            }
+          }
+        },
+        "tempo_parziale": 11.928,
+        "orario_fine": "09:48:32:737",
+        "terminato": 1,
+        "score_parziale": 35
+      },
+      "5": {
+        "n_sequenza": 5,
+        "n_carte": 6,
+        "ripetizione": 0,
+        "n_errori": 3,
+        "n_aiuti": 2,
+        "orario_inizio": "09:48:36:290",
+        "suggerimenti_abilitati": "09:48:47:848",
+        "sequenza": {
+          "0": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "09:48:42:940"
+              }
+            }
+          },
+          "1": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "09:48:44:93"
+              }
+            }
+          },
+          "2": {
+            "mossa": {
+              "0": {
+                "tipo": "Errore",
+                "orario": "09:48:44:489"
+              },
+              "1": {
+                "tipo": "Errore",
+                "orario": "09:48:45:118"
+              },
+              "2": {
+                "tipo": "Corrispondenza",
+                "orario": "09:48:45:589"
+              }
+            }
+          },
+          "3": {
+            "mossa": {
+              "0": {
+                "tipo": "Errore",
+                "orario": "09:48:46:38"
+              },
+              "1": {
+                "tipo": "SuggerisciPosizione(suggerimento)",
+                "orario": "09:48:50:359",
+                "nCarte_nonNascoste": 6,
+                "nCarte_nonNascoste_dopo": 3
+              },
+              "2": {
+                "tipo": "Corrispondenza",
+                "orario": "09:48:54:215"
+              }
+            }
+          },
+          "4": {
+            "mossa": {
+              "0": {
+                "tipo": "IndicaPosizione(suggerimento)",
+                "orario": "09:49:03:921",
+                "nCarte_nonNascoste": 6,
+                "nCarte_nonNascoste_dopo": 1
+              },
+              "1": {
+                "tipo": "Corrispondenza",
+                "orario": "09:49:05:138"
+              }
+            }
+          }
+        },
+        "tempo_parziale": 28.848,
+        "orario_fine": "09:49:05:138",
+        "terminato": 1,
+        "score_parziale": 30
+      }
+    },
+    "orario_inizio": "09:46:17:981",
+    "orario_fine": "09:49:22:18",
+    "livello_raggiunto": 5,
+    "score_tot": 85,
+    "errori_tot": 26,
+    "aiuti_tot": 2,
+    "tempo_tot": 184.036
+  },
+  "partecipante": 2
+}

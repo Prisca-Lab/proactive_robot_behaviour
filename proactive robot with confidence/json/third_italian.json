@@ -1,0 +1,161 @@
+{
+    "src": "italian",
+    "language": "it-IT",
+    "main": {
+      "voice": "Giorgio",
+      "home": "Ciao! Leggi le istruzioni prima di iniziare. Nota bene che per sbloccare i suggerimenti dovrai chiedermelo vocalmente.",
+      "form": "Compila il form per iniziare a giocare.",
+      "game": "Buona partita!",
+      "final_form": "Ora, rispondi alle domande post-interazione prima di terminare.",
+      "end": "Grazie per aver partecipato."
+    },
+    "home": {
+      "img": [
+        "info5", "info6"
+      ],
+      "gif": [
+        "tutorial2", "third_1", "third_2", "third_3", "third_4"
+      ],
+      "description0": "\u00A0 \u00A0 Per ogni livello memorizza la <i>sequenza</i> e ripetila.",
+      "description1": "\u00A0 \u00A0 Per completare ogni livello sarà possibile usufruire di diversi <i>suggerimenti</i>, a costo di una penalità di punteggio. <br> \u00A0 \u00A0 Premi sui vari bottoni per saperne di più: ",
+      "description2": "\u00A0 \u00A0 Durante il gioco, attendi che il robot finisca di parlare prima di compiere qualsiasi azione. <br> \u00A0 \u00A0 Puoi sbloccare i suggerimenti dicendo verso il robot '<i><U>Sblocca i suggerimenti</U></i> ' oppure potrà fornirteli direttamente lui.<br> <br>",
+      "trialButton": ["Prova", "Prova il gioco"],
+      "playButton": ["Gioca", "Inizia a giocare"],
+      "startButton": ["Inizia", "Inizia"],
+      "sugg1": ["Nascondi Carta", "-1 Punto", "Elimina temporaneamente una carta tra quelle da selezionare."],
+      "sugg2": ["Suggerisci Posizione", "-2 Punti", "Elimina temporaneamente carte a destra o a sinistra tra quelle da selezionare."],
+      "sugg3": ["Indica Posizione", "-3 Punti", "Elimina temporaneamente tutte le carte tranne quella da selezionare."],
+      "sugg4": ["Rivedi Sequenza", "-4 Punti", "Permette di rivedere l'intera sequenza di carte per 5 secondi."],
+      "penalty": "Penalità: ",
+      "close": "Chiudi"
+    },
+    "form": {
+      "img": [
+        "form_img"
+      ],
+      "popupText":[
+        "L'età deve essere un numero.","L'età deve essere maggiore di 18.", "L'età deve essere minore di 80."
+      ],
+      "nextButton": ["Avanti", "Procedi"],
+      "playButton": ["Gioca", "Inizia a giocare"],
+      "form_span": ["Età", "Genere", "Livello di istruzione"],
+      "gender_value": ["Maschio", "Femmina", "Non binario", "Preferisco non specificarlo"],
+      "education_value": ["Secondario di primo grado", "Secondario di secondo grado", "Università"],
+      "testPlayer": ["", 
+          "Quando inizio a giocare per la prima volta, voglio assolutamente e mi aspetto di battere il gioco.", 
+          "Se rimango bloccato, non continuo a sbatterci contro. Lascio in pace quella parte del gioco e torno con una nuova prospettiva.", 
+          "In genere mi piace sperimentare con il gioco, anche se non sto progredendo.", 
+          "Il gioco a cui sto giocando è meno importante delle persone con cui sto giocando.", 
+          "Quando sto lavorando su una sfida particolare, la provo più e più volte finché non la batto.",
+          "Voglio sentirmi sfidato e non mi dispiace che il gioco si adatti al mio livello, purché non diventi troppo facile.",
+          "Quando affronto una sfida difficile e sento che sarò bloccato a provarlo per molto tempo, perdo rapidamente interesse.",
+          "Una volta che inizio a prendermi cura di un personaggio del gioco, mi sento male se non mi prendo cura di lui.",
+          "Mi piace quando vinco una sfida davvero difficile - questo ne fa valere la pena.",
+          "Mi piacciono i giochi in cui posso creare piani e strategie diversi. A volte sono felice anche se in una partita perdo se sento di aver giocato bene e in modo interessante.",
+          "A volte vengo travolto dall'esperienza del gioco e mi dimentico completamente degli obiettivi che mi sono stati dati.",
+          "Preferirei di gran lunga giocare con altre persone piuttosto che giocare da solo.",
+          "Nella maggior parte dei casi non smetterò di giocare finché non so di aver visto e battuto tutto/i.",
+          "Il modo in cui gioco è più importante della vittoria, perché voglio padroneggiare i giochi che gioco.",
+          "Di solito ho più di un gioco in corso... Non ho bisogno di finire un gioco per iniziarne un altro: una nuova esperienza è più gratificante che padroneggiare qualcosa di familiare.",
+          "Preferirei un mondo di gioco con molti personaggi con cui interagire, rispetto a un mondo con molti dettagli da esplorare."
+      ],
+      "description": "Indica il grado in cui ritieni che l'affermazione si applichi a te, facendo clic sulla scala che da sinistra a destra va da '<i>Non si applica davvero<i>' a '<i>Si applica totalmente</i>'.",
+      "agreement": "Accetto che tutti i dati personali che fornisco qui e tutte le mie risposte vengano registrati <br> \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 e possano essere utilizzati a fini di ricerca in modo anonimo (articolo 13 del GDPR)."
+    },
+    "final_form":{
+      "description": "Qual è la tua impressione su questo robot? <br> Indica il grado in cui ritieni che l'affermazione si applichi al robot, facendo clic sulla scala che da sinistra a destra va da '<i>Fortemente in Disaccordo<i>' a '<i>Fortemente D'accordo</i>'.",
+      "sendButton": ["Invia", "Invia risposte"],
+      "first": [
+        "Questo robot si accorge quando le persone fanno qualcosa.",
+        "Questo robot cerca di essere utile.",
+        "Questo robot è affidabile.", 
+        "Questo robot è in grado di capire cosa pensano le persone.",
+        "Questo robot adatta il suo comportamento in base a ciò che le persone intorno a lui sanno.",
+        "Questo robot anticipa le credenze degli altri.",
+        "Questo robot è socialmente competente."
+      ],
+      "second": [
+          "Questo robot rileva i movimenti umani.",
+          "Questo robot è cooperativo.",
+          "Questo robot è onesto.",
+          "Questo robot sa quando alle persone mancano informazioni.",
+          "Questo robot ignora ciò che le persone pensano.",
+          "Questo robot sa che cosa le persone crederanno in futuro.",
+          "Questo robot è socialmente consapevole."
+      ],
+      "third": [
+        "Questo robot è in grado di capire cosa fanno le persone.",
+        "Questo robot dà più valore alla cooperazione che alla competizione.",
+        "Questo robot è sincero.",
+        "Questo robot è in grado di capire cosa vedono le persone.",
+        "Questo robot sceglie le azioni appropriate una volta che sa cosa pensano gli altri.",
+        "Questo robot sa in anticipo cosa penseranno le persone in determinate situazioni.",
+        "Questo robot è socialmente sprovveduto."
+      ],
+      "fourth": [
+        "Questo robot si accorge quando le persone cercano di interagire con lui.",
+        "Questo robot vuole aiutare le persone.",
+        "Questo robot è etico.",
+        "Questo robot capisce il punto di vista degli altri.",
+        "Questo robot sa cosa fare quando le persone sono confuse.",
+        "Questo robot anticipa ciò che le persone penseranno.",
+        "Questo robot ha forti capacità sociali."
+      ],
+      "proactivity": [
+        "Il robot ha anticipato il mio problema prima ancora che io lo scoprissi.",
+        "Il robot mi ha informato prima che io potessi scoprire il problema.",
+        "Il robot ha fatto in modo che le cose accadessero, anziché limitarsi a reagire a una situazione o ad aspettare che accadesse qualcosa.",
+        "Il robot ha agito prima che glielo chiedessi.",
+        "Il robot non ha aspettato che gli venisse chiesto di agire.",
+        "Il robot ha affrontato il mio problema prima che io lo affrontassi."
+      ]
+    },
+    "trial": {
+      "img": [
+        "robot2"
+      ],
+      "sugg": {
+        "sugg1": ["Nascondi Carta", "-1 Punto"],
+        "sugg2": ["Suggerisci Posizione", "-2 Punti"],
+        "sugg3": ["Indica Posizione", "-3 Punti"],
+        "sugg4": ["Rivedi Sequenza", "-4 Punti"]
+      },
+      "suggName": ["Nascondi Carta", "Suggerisci Posizione", "Indica Posizione", "Rivedi Sequenza"],
+      "endButton": ["Termina Prova", "Termina la prova"],
+      "description": ["Livello: ", "Punteggio: ", "Tempo: "],
+      "table": ["Giocatore", "Punteggio", "Tu"],
+      "table_description" : "Classifica Punteggi",
+      "endTable": ["Fine", "Termina Prova"],
+      "nextTable": ["Avanti", "Livello Successivo"],
+      "bubbleButton": ["Si", "No"],
+      "bubbleText": ["Premi su di me per sbloccare gli aiuti!", "Penso che ti possa servire un aiuto!", "Ti suggerisco di utilizzare l'aiuto ","Ho scelto di utilizzare per te l'aiuto ", "! L'hai gradito?"]
+    },
+    "game": {
+      "img": [
+        "robot2"
+      ],
+      "sugg": {
+        "sugg1": ["Nascondi Carta", "-1 Punto"],
+        "sugg2": ["Suggerisci Posizione", "-2 Punti"],
+        "sugg3": ["Indica Posizione", "-3 Punti"],
+        "sugg4": ["Rivedi Sequenza", "-4 Punti"]
+      },
+      "suggName": ["Nessuno", "Nascondi Carta", "Suggerisci Posizione", "Indica Posizione", "Rivedi Sequenza"],
+      "endButton": ["Termina Gioco", "Termina il gioco"],
+      "description": ["Livello: ", "Punteggio: ", "Tempo: "],
+      "description_unlock": "Per sbloccare i suggerimenti dici '<i>Sblocca i suggerimenti</i> ' verso il robot.",
+      "table": ["Giocatore", "Punteggio", "Tu", "Sconosciuto"],
+      "table_description" : "Classifica Punteggi",
+      "endTable": ["Fine", "Termina Partita"],
+      "nextTable": ["Avanti", "Livello Successivo"],
+      "likeDescription": ["Hai gradito il suggerimento attivato?", "Si", "No"],
+      "alertDescription": ["Sei sicuro di voler terminare il gioco?", "Si", "No"],
+      "bubbleButton": ["Si", "No"],
+      "bubbleText": ["Premi su di me per sbloccare gli aiuti!", "Penso che ti possa servire un aiuto!", "Ti suggerisco di utilizzare l'aiuto ","Ho scelto di utilizzare per te l'aiuto ", "! L'hai gradito?"],
+      "unlock": ["blocca gli aiuti", "sblocca gli aiuti", "sblocca i suggerimenti", "blocca i suggerimenti"]
+    },
+    "end": {
+      "description": "Grazie per aver partecipato!",
+      "table": ["Giocatore", "Punteggio", "Tu", "Sconosciuto"]
+    }
+}

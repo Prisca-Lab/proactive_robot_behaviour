@@ -1,0 +1,73 @@
+{
+  "eta": "24",
+  "genere": "Femmina",
+  "formazione": "Universita",
+  "partita": {
+    "livello_max": 26,
+    "livello": {
+      "1": {
+        "n_sequenza": 4,
+        "n_carte": 4,
+        "ripetizione": 0,
+        "n_errori": 5,
+        "n_aiuti": 0,
+        "orario_inizio": "08:55:23:537",
+        "suggerimenti_abilitati": null,
+        "sequenza": {
+          "0": {
+            "mossa": {
+              "0": {
+                "tipo": "Errore",
+                "orario": "08:55:29:288"
+              },
+              "1": {
+                "tipo": "Errore",
+                "orario": "08:55:29:728"
+              },
+              "2": {
+                "tipo": "Corrispondenza",
+                "orario": "08:55:30:304"
+              }
+            }
+          },
+          "1": {
+            "mossa": {
+              "0": {
+                "tipo": "Errore",
+                "orario": "08:55:31:645"
+              },
+              "1": {
+                "tipo": "Errore",
+                "orario": "08:55:32:555"
+              },
+              "2": {
+                "tipo": "Errore",
+                "orario": "08:55:33:436"
+              },
+              "3": {
+                "tipo": "TerminaDurantePartita ",
+                "orario": "08:55:35:801"
+              },
+              "4": {
+                "tipo": "Si(Fine)",
+                "orario": "08:55:37:130"
+              }
+            }
+          }
+        },
+        "tempo_parziale": 13.593,
+        "orario_fine": "08:55:37:130",
+        "terminato": 0,
+        "score_parziale": -15
+      }
+    },
+    "orario_inizio": "08:55:23:537",
+    "orario_fine": "08:55:37:130",
+    "livello_raggiunto": 1,
+    "score_tot": -15,
+    "errori_tot": 5,
+    "aiuti_tot": 0,
+    "tempo_tot": 13.593
+  },
+  "partecipante": 5
+}

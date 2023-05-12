@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>
+            Memory Sequence Game
+        </title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/third_template.css') }}">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Patrick+Hand' rel='stylesheet'>
+    </head>
+    <body>
+        <div class="container">
+            <div class="container_form" id="div" style="margin-top:50px;">
+                <select style="margin-top: 10px;" class="language" id="selectBox" onchange="changeFunc();">
+                    <option value="italian">Italian</option>
+                    <option value="english">English</option>
+                </select>
+                <img id="logo" class="logoForm" src="{{url_for('static', filename='img/logo.png')}}" align="right"> <br>
+                <input style="margin-left: 20px; margin-top: 30px" type="checkbox" id="agree" name="agree_name" value="true">
+                <label id="agreement" style="font: 18px/1 'Acme'" for="agree_name"> Accetto che tutti i dati personali che fornisco qui e tutte le mie risposte vengano registrati <br> &#160 &#160 &#160 &#160 &#160 &#160 &#160 e possano essere utilizzati a fini di ricerca in modo anonimo (articolo 13 del GDPR). </label><br>
+                <div style="margin-left:7px; margin-right:7px; background-color: #fffeacce;" id="div1">
+                <div style="margin-left:20px;  margin-top: 5px" id="description1"> &#160 &#160 Compila il form per iniziare a giocare. </div>
+                <div class="row_margin" id="pre">
+                    <form name="invio_dati" id="form" method = "post" enctype="multipart/form-data" action="game">
+                        <button type="submit" disabled style="display:none" aria-hidden="true"></button>
+                        <span class="form_span"">Età</span> <br>
+                        <div class="popup1">
+                            <span class="popuptext" id="myPopup"> </span>
+                        </div>
+                        <input id="age" class="form" name="age" placeholder="Età" required />
+                        <br>
+                        <span class="form_span">Genere</span> <br>
+                        <select id="gender" class="form" name="gender" required>
+                            <option value="Maschio">Maschio</option>
+                            <option value="Femmina">Femmina</option>
+                            <option value="Non binario">Non binario</option>
+                            <option value="Preferisco non specificarlo">Preferisco non specificare</option>
+                        </select>
+                        <br>
+                        <span class="form_span">Livello di istruzione</span> <br>
+                        <select id="education" class="form" name="education" required>
+                            <option value="Secondario di primo grado"> Secondario di primo grado </option>
+                            <option value="Secondario di secondo grado"> Secondario di secondo grado </option>
+                            <option value="Universita"> Università </option>
+                        </select>
+                        <br>
+                    <button id="next" type="button" class="gioca" value="Gioca" form="form" onclick="return submitForm()"" aria-label='Procedi' data-balloon-pos='down'>Avanti</button><br><br>
+                   </form>
+                </div>
+            </div>
+                <p> <br> <span id="description" style="display:none; font: 20px/1 'Patrick Hand', sans-serif;">  </span>  </p>
+                <table  id="post" style="display:none; font: 20px/1 'Patrick Hand', sans-serif;" WIDTH="99%" BORDER="1" CELLPADDING="5" align="center">
+                    <tr>
+                        <td style="border: 0;" align="left"></td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">1</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">2</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">3</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">4</td>
+                        <td style="font: 22px/1 'Acme', sans-serif; background-color: #b19d89; color: #FFF;" align="center">5</td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="1"> <label style="color: red;"> oo</label> </td>
+                        <td align="center"><input TYPE="radio" name="Q1" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q1" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q1" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q1" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q1" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="2"> </td>
+                        <td align="center"><input TYPE="radio" name="Q2" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q2" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q2" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q2" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q2" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="3"> </td>
+                        <td align="center"><input TYPE="radio" name="Q3" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q3" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q3" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q3" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q3" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="4"> </td>
+                        <td align="center"><input TYPE="radio" name="Q4" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q4" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q4" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q4" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q4" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="5"> </td>
+                        <td align="center"><input TYPE="radio" name="Q5" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q5" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q5" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q5" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q5" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="6"> </td>
+                        <td align="center"><input TYPE="radio" name="Q6" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q6" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q6" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q6" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q6" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="7"> </td>
+                        <td align="center"><input TYPE="radio" name="Q7" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q7" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q7" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q7" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q7" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="8"> </td>
+                        <td align="center"><input TYPE="radio" name="Q8" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q8" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q8" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q8" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q8" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="9"> </td>
+                        <td align="center"><input TYPE="radio" name="Q9" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q9" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q9" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q9" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q9" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="10"> </td>
+                        <td align="center"><input TYPE="radio" name="Q10" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q10" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q10" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q10" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q10" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="11"> </td>
+                        <td align="center"><input TYPE="radio" name="Q11" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q11" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q11" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q11" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q11" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="12"> </td>
+                        <td align="center"><input TYPE="radio" name="Q12" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q12" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q12" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q12" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q12" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="13"> </td>
+                        <td align="center"><input TYPE="radio" name="Q13" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q13" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q13" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q13" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q13" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="14"> </td>
+                        <td align="center"><input TYPE="radio" name="Q14" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q14" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q14" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q14" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q14" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="15"> </td>
+                        <td align="center"><input TYPE="radio" name="Q15" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q15" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q15" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q15" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q15" value="5"></td>
+                    </tr>
+                    <tr>
+                    <td style="background: #ffffff;" align="left" id="16"> </td>
+                        <td align="center"><input TYPE="radio" name="Q16" value="1"></td>
+                        <td align="center"><input TYPE="radio" name="Q16" value="2"></td>
+                        <td align="center"><input TYPE="radio" name="Q16" value="3"></td>
+                        <td align="center"><input TYPE="radio" name="Q16" value="4"></td>
+                        <td align="center"><input TYPE="radio" name="Q16" value="5"></td>
+                    </tr>
+                </table>
+                <button style="display:none; margin-left:550px; margin-top:10px;" id="play" type="button" onclick="return submitAll()"" class="gioca" value="Gioca" aria-label='Inizia a giocare' data-balloon-pos='up'>Gioca</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        let selectBox = document.getElementById("selectBox");
+        const resObj_it = {{resObj_it|tojson}}
+        const resObj_en = {{resObj_en|tojson}}
+        const actual_language = {{actual_language|tojson}}
+        let selectedValue = actual_language["language"]
+        let language_json = get_json(selectedValue)
+        let popuptext1, popuptext2, popuptext3, data ={}
+        let playPressed = false
+        if(selectedValue != "italian"){
+            changeLanguage(language_json)
+            selectBox.selectedIndex = indexMatchingText(selectBox, actual_language["language"])
+        }else{
+            popuptext1 = language_json.form.popupText[0]
+            popuptext2 = language_json.form.popupText[1]
+            popuptext3 = language_json.form.popupText[2]
+        }
+
+        function indexMatchingText(box, text) {
+            for(let i=0; i<box.options.length;i++) {
+                if (box.options[i].attributes[0].nodeValue === text){
+                    return i;
+                }
+            }
+        }
+
+        function get_json(selectedValue){
+            if (selectedValue === "italian") {
+                return resObj_it
+            }
+            else if(selectedValue === "english"){
+                return resObj_en
+            }
+        }
+
+        function changeFunc(){
+            selectedValue = selectBox.options[selectBox.selectedIndex].value;
+            data["language"] = selectedValue
+            language_json = get_json(selectedValue)
+            changeLanguage(language_json)
+            $.ajax({
+                url:"/language",
+                type:"POST",
+                contentType: "application/json",
+                data: JSON.stringify(JSON.stringify(data))
+            });
+        }
+
+        function changeLanguage(resObj_show){
+            popuptext1 = resObj_show.form.popupText[0]
+            popuptext2 = resObj_show.form.popupText[1]
+            popuptext3 = resObj_show.form.popupText[2]
+
+            document.getElementById("agreement").innerHTML = resObj_show.form.agreement
+
+            document.getElementById("next").innerHTML = resObj_show.form.nextButton[0]
+            document.getElementById("next").setAttribute('aria-label', resObj_show.form.nextButton[1])
+
+            document.getElementById("play").innerHTML = resObj_show.form.playButton[0]
+            document.getElementById("play").setAttribute('aria-label', resObj_show.form.playButton[1])
+
+            let span = document.getElementsByClassName("form_span")
+            for(let i=0; i<span.length;i++) {
+                span[i].innerHTML = resObj_show.form.form_span[i]
+            }
+            document.getElementById("age").setAttribute("placeholder", resObj_show.form.form_span[0])
+
+            let gender_value = document.getElementById("gender")
+            for(let i=0; i<gender_value.options.length;i++) {
+                gender_value.options[i].innerHTML = resObj_show.form.gender_value[i]
+            }
+
+            let education_value = document.getElementById("education")
+            for(let i=0; i<education_value.options.length;i++) {
+                education_value.options[i].innerHTML = resObj_show.form.education_value[i]
+            }
+
+            for(let i=1; i<17;i++) {
+                var num = i + ". "
+                if(playPressed){
+                    if(document.querySelector('input[name="Q' + i + '"]:checked') == null){
+                        document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.form.testPlayer[i].fontcolor("red")
+                    }else{
+                        document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.form.testPlayer[i]
+                    }
+                }else{
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + resObj_show.form.testPlayer[i]
+                }
+            }
+
+            document.getElementById("description").innerHTML = resObj_show.form.description
+        }
+
+        function checkAge(age){
+            var regex=/^[0-9]+$/;
+            if(!age.match(regex)){
+                popupFunction(popuptext1)
+                return false
+            }else if(age < 18){
+                popupFunction(popuptext2)
+                return false
+            }else if(age > 80){
+                popupFunction(popuptext3)
+                return false
+            }
+            return true
+        }
+
+        function checkAgree(){
+            if(document.getElementById("agree").checked){
+                return true
+            }else{
+                document.getElementById("agreement").style.color = "red"
+                return false
+            }
+        }
+
+        function submitForm(){
+            let form = document.getElementById('form');
+            var age = form.elements['age'].value
+            var gender = form.elements['gender'].value
+            var education = form.elements['education'].value
+            if(checkAge(age) && checkAgree()){
+                document.getElementById("pre").style.display = "none"
+                document.getElementById("agree").style.display = "none"
+                document.getElementById("agreement").style.display = "none"
+                document.getElementById("div").className = "container_test"
+                document.getElementById("description1").style.display = "none"
+                document.getElementById("div1").style.display = "none"
+
+                document.getElementById("description").style.display = "block"
+                document.getElementById("description").innerHTML = language_json.form.description
+
+                for(let i=1; i<17;i++) {
+                    var num = i + ". "
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.form.testPlayer[i]
+                }
+
+                document.getElementById("post").style.display = "block"
+                document.getElementById("play").style.display = "block"
+            }
+        }
+
+        function checkTest(){
+            let check = true
+            for(let i=1; i<17;i++) {
+                var num = i + ". "
+                if(document.querySelector('input[name="Q' + i + '"]:checked') == null){
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.form.testPlayer[i].fontcolor("red")
+                    check = false
+                }else{
+                    document.getElementById(i).innerHTML = num.fontcolor("d40c0c") + language_json.form.testPlayer[i]
+                }
+            }
+            return check
+        }
+
+        function get_dgd(){
+            let dgd = {}
+            for(let i=1; i<17;i++) {
+                dgd['Q' + i] = parseInt(document.querySelector('input[name="Q' + i + '"]:checked').value)
+            }
+            return dgd
+        }
+
+        function submitAll(){
+            playPressed = true
+            if(checkTest()){
+                let dgd = get_dgd()
+                $.ajax({
+                    url:"/dgd_test",
+                    type:"POST",
+                    contentType: "application/json",
+                    data: JSON.stringify(JSON.stringify(dgd)),
+                    success: function(result) {
+                        console.log("Result:");
+                        console.log(result);
+                        form.submit()
+                    }
+                });
+
+            }
+        }
+
+        function popupFunction(text){
+            let popup = document.getElementById("myPopup");
+            popup.innerHTML = text
+            popup.className = `popuptext show`;
+
+            setTimeout(function(){
+                popup.innerHTML = ''
+                popup.className = `popuptext hide`;}, 1000
+            );
+        }
+    </script>
+</html>

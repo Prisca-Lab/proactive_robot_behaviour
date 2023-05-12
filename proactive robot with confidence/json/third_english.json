@@ -1,0 +1,162 @@
+{
+    "src": "english",
+    "language": "en-US",
+    "main": {
+      "voice": "Matthew",
+      "home": "Hello! Read the instructions before starting. Please note that to unlock the hints you must ask me vocally.",
+      "form": "Fill out the form to start playing.",
+      "game": "Enjoy game!",
+      "final_form": "Now, answer post-interaction questions before finishing.",
+      "end": "Thank you for participating."
+    },
+    "home": {
+      "img": [
+        "info5", "info6"
+      ],
+      "gif": [
+        "tutorial2", "third_1", "third_2", "third_3", "third_4"
+      ],
+      "description0": "\u00A0 \u00A0 For each level memorize the <i>sequence</i> and repeat it!",
+      "description1": "\u00A0 \u00A0 Various <i> hints </i> \u00A0 will be available to complete each level, at the cost of a score penalty. <br> \u00A0 \u00A0 Click on the various buttons to find out more:",
+
+      "description2": "\u00A0 \u00A0 During the game, wait for the robot to finish talking before taking any action. <br> \u00A0 \u00A0 You can unlock the hints by saying towards the robot '<i><U>Unlock the suggestion</U></i> ' or it can provide them directly to you.<br> <br>",
+      "trialButton": ["Trial", "Try the game"],
+      "playButton": ["Play", "Start playing"],
+      "startButton": ["Start", "Start"],
+      "sugg1": ["Hide Card",  "-1 Point", "Temporarily delete a card from those to be selected."],
+      "sugg2": ["Suggest Position", "-2 Points", "Temporarily delete cards to the right or left among those to be selected."],
+      "sugg3": ["Indicate Position", "-3 Points", "Temporarily delete all cards except the one to be selected."],
+      "sugg4": ["Review Sequence", "-4 Points", "Allows you to review the entire sequence of cards for 5 seconds."],
+      "penalty": "Penalty: ",
+      "close": "Close"
+    },
+    "final_form":{
+      "description": "What is your impression of this robot? <br> Indicate the degree to which you think the statement applies to the robot, by clicking on the scale from left to right from '<i>Strongly Disagree</i>' to '<i>Strongly Agree</i>'.",
+      "sendButton": ["Send", "Send answers"],
+      "first": [
+        "This robot notices when people do things.",
+        "This robot tries to be helpful.",
+        "This robot is trustworthy.", 
+        "This robot can figure out what people think.",
+        "This robot adapts its behavior based upon what people around it know.",
+        "This robot anticipates others’ beliefs.",
+        "This robot is socially competent."
+      ],
+      "second":[
+          "This robot detects human movement.",
+          "This robot is cooperative.",
+          "This robot is honest.",
+          "This robot knows when people are missing information.", 
+          "This robot ignores what people are thinking.",
+          "This robot figures out what people will believe in the future.",
+          "This robot is socially aware."
+      ],
+      "third": [
+        "This robot can figure out what people are doing.",
+        "This robot values cooperation over competition.",
+        "This robot is sincere.",
+        "This robot can figure out what people can see.",
+        "This robot selects appropriate actions once it knows what others think.",
+        "This robot knows ahead of time what people will think about certain situations.",
+        "This robot is socially clueless."
+      ],
+      "fourth": [
+        "This robot notices when people try to interact with it.",
+        "This robot wants to help people.",
+        "This robot is ethical.",
+        "This robot understands others’ perspectives.",
+        "This robot knows what to do when people are confused.",
+        "This robot anticipates what people will think.",
+        "This robot has strong social skills."
+      ],
+      "proactivity": [
+        "The robot anticipated my problem even before I found out about it.",
+        "The robot informed me before I could find out about the problem.",
+        "The robot made things happen rather than just reacting to a situation or waiting for something to happen.",
+        "The robot took action before I asked it to.",
+        "The robot did not wait to be asked by me to act.",
+        "The robot got to my issue before I took my issue to it."
+      ]
+    },
+    "form": {
+      "img": [
+        "form_img"
+      ],
+      "popupText":[
+        "Age must be a number.", "Age must be greater than 18.", "Age must be under 80." 
+      ],
+      "nextButton": ["Next", "Next"],
+      "playButton": ["Play", "Start playing"],
+      "form_span": ["Age", "Gender", "Educational level"],
+      "gender_value": ["Male", "Female", "Non binary", "I prefer not to specify"],
+      "education_value": ["Lower secondary school", "Upper secondary school", "University"],
+      "testPlayer": ["", 
+          "When I first start playing a game, I absolutely want and expect to beat the game.", 
+          "If I get stuck, I don't keep banging away at the puzzle. I leave that part of the game alone and come back with a fresh perspective.", 
+          "I generally enjoy messing around with the game, even if I'm not progressing.", 
+          "The game I'm playing is less important than the people I'm playing with.", 
+          "When I'm working on a particular challenge, I'll try it over and over again until I beat it.", 
+          "I want to feel challenged, and I don't mind the game adjusting to my level, as long as it doesn't become too easy.", 
+          "When I face a hard challenge, and I feel like I will be stuck trying it for ages, I quickly lose interest.", 
+          "Once I start looking after a game character, I feel bad if I don't take good care of them.", 
+          "I love it when I beat a really tough challenge - that makes everything worthwhile.", 
+          "I like games where I can make diverse plans and strategies. I sometimes enjoy a game I lose if I feel I played well and interestingly.", 
+          "Sometimes I get swept up in the experience of the game and completely forget about the goals I've been given.", 
+          "I'd much rather play with other people than play alone.", 
+          "Most of the time I won't stop playing until I know I've seen and beaten everything.", 
+          "The way I play is more important than winning, because I want to master the games I play.", 
+          "I usually have more than one game on the go... I don't need to finish one game to start another - a new experience is more rewarding than mastering something familiar.", 
+          "I'd prefer a game world with lots of characters to interact with, over a world with lots of details to explore."
+        ],
+      "description": "Indicate the degree to which you feel the statement applies to you, by clicking on the scale which from left to right goes '<i>Really doesn't apply</i>' to '<i>Totally applies</i>'.",
+      "agreement": "I agree that all the personal data which I provide here and all my responses will be recorded, <br> \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 and can be used for research purposes anonymously way (Article 13 of the GDPR)."
+    },
+    "trial": {
+      "img": [
+        "robot2"
+      ],
+      "sugg": {
+        "sugg1": ["Hide Card",  "-1 Point"],
+        "sugg2": ["Suggest Position", "-2 Points"],
+        "sugg3": ["Indicate Position", "-3 Points"],
+        "sugg4": ["Review Sequence", "-4 Points"]
+      },
+      "suggName": ["Hide Card", "Suggest Position", "Indicate Position", "Review Sequence"],
+      "endButton": ["End Trial", "Finish the trial"],
+      "description": ["Level: ", "Score: ", "Time: "],
+      "table": ["Player", "Score", "You"],
+      "table_description" : "Scores Ranking",
+      "endTable": ["End", "End Trial"],
+      "nextTable": ["Next", "Next Level"],
+      "bubbleButton": ["Yes", "No"],
+      "bubbleText": ["Click on me to unlock hints!", "I think you could use some hint!", "I suggest you to use ", "I chose to use ", " for you! Did you like it?"]
+    },
+    "game": {
+      "img": [
+        "robot2"
+      ],
+      "sugg": {
+        "sugg1": ["Hide Card",  "-1 Point"],
+        "sugg2": ["Suggest Position", "-2 Points"],
+        "sugg3": ["Indicate Position", "-3 Points"],
+        "sugg4": ["Review Sequence", "-4 Points"]
+      },
+      "description_unlock": "To unlock the hints say '<i>Unlock the suggestion </i> ' towards the robot.",
+      "suggName": ["None", "Hide Card", "Suggest Position", "Indicate Position", "Review Sequence"],
+      "endButton": ["End Game", "Finish the game"],
+      "description": ["Level: ", "Score: ", "Time: "],
+      "table": ["Player", "Score", "You", "Unknown"],
+      "table_description" : "Scores Ranking",
+      "endTable": ["End", "End Game"],
+      "nextTable": ["Next", "Next Level"],
+      "alertDescription": ["Are you sure you want to end the game?", "Yes", "No"],
+      "likeDescription": ["Did you like the activated suggestion?", "Yes", "No"],
+      "bubbleButton": ["Yes", "No"],
+      "bubbleText": ["Click on me to unlock hints!", "I think you could use some hint!", "I suggest you to use ", "I chose to use ", " for you! Did you like it?"],
+      "unlock": ["unlock the suggestion", "unlock the hints", "lock the hints", "lock the suggestion"]
+    },
+    "end": {
+      "description": "Thank you for participating!",
+      "table": ["Player", "Score", "You", "Unknown"]
+    }
+  }

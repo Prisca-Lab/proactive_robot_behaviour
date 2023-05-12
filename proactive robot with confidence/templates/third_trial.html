@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>
+            Memory Sequence Game
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/third_template.css') }}">
+        <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    </head>
+    <body>
+        <div class="container"> 
+            <div class="container_game">
+                <img class="logo" src="{{url_for('static', filename='img/logo.png')}}" align="right"> <br> 
+                <select style="margin-left:40px;" class="language" id="selectBox" onchange="changeFunc();">
+                    <option value="italian">Italian</option>
+                    <option value="english">English</option>
+                </select>
+                <br> <br>
+                <div class="popup">
+                    <span class="popuptext" id="myPopup"> </span>
+                </div>
+                <ul style="margin:0 auto;" align="left"> <span id="myText" class="myText"> </span></ul>
+                <!-- <ul style="margin:0 auto;" align="left"><span class="myText2"> Premi "FINE" per terminare la prova. </span></ul> -->
+            </div>
+        </div> 
+        
+        <img id="unlock" class="unlock2" src="{{url_for('static', filename='img/italian/robot2.png')}}" onclick="return robotPressed()">
+        <div id="js-text-block" style="display: none;" class="talk-bubble tri-right left-top">
+            <div class="talktext">
+              <p id="text_chat">Premi su di me per sbloccare gli aiuti!</p> 
+              <div class="row_bubble">
+                <button style="display: none;margin-right:20px;" id="si" onclick="return hideButton('si')" type="button" class="btn btn-success playModal">Si</button>
+                <button style="display: none;" id="no" onclick="return hideButton('no')" type="button" class="btn btn-danger endModal">No</button>  
+              </div>
+            </div>
+        </div>
+
+        <button type="button" id="modal" style="display: none;" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"> </button>
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header backModal">
+                  <span id="table_description" class="modal-title textTable">Classifica Punteggi</span>
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body backModal">
+                    <div class="table-responsive">  
+                        <table class="cinereousTable" id="table">
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer backModal">
+                    <button id="next" onclick="return closeButtonClick()" type="button" class="btn btn-success playModal" data-dismiss="modal" aria-label='Livello Successivo' data-balloon-pos='up'>Avanti</button>
+                    <button id="end" onclick="location.href='form'" type="button" class="btn btn-danger endModal" data-dismiss="modal" aria-label='Termina Prova' data-balloon-pos='up'>Fine</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <script>
+            const resObj_it = {{resObj_it|tojson}}
+            const resObj_en = {{resObj_en|tojson}}
+            const actual_language = {{actual_language|tojson}}
+            let data = {}
+            let indexTxt = 0, timerRandom = 10000, random_how = -1, bubbleText=0
+            let selectBox = document.getElementById("selectBox");
+            let selectedValue = actual_language["language"]
+            let language_json = get_json(selectedValue)
+            // GET HTML ELEMENT 
+            const container = document.getElementsByClassName('container');
+            let img = document.getElementById('unlock');
+            let jsTextBlock = document.getElementById('js-text-block')
+            let text_chat = document.getElementById('text_chat')
+            let popup = document.getElementById("myPopup");
+            let table = document.getElementById("table");
+            let yesButton = document.getElementById("si");
+            let noButton = document.getElementById("no");
+            let buttonModal = document.getElementById("modal")
+            let myText = document.getElementById('myText');
+            // CREATE HELP BUTTON
+            let betaButton1 = document.createElement("button");
+            let betaButton2 = document.createElement("button");
+            let betaButton3 = document.createElement("button");
+            let betaButton4 = document.createElement("button");
+            let buttons_array = new Array(betaButton1, betaButton2, betaButton3, betaButton4);
+            for (let i in buttons_array) {
+                buttons_array[i].className = "suggerimenti_disabilitati"
+                buttons_array[i].setAttribute('data-balloon-pos', 'up')
+            }
+            let i = 0;
+            let sugg = ["Nascondi Carta", "Suggerisci Posizione", "Indica Posizione", "Rivedi Sequenza"]
+            for (let i=0; i<sugg.length; i++){
+                buttons_array[i].id = sugg[i]
+            } 
+            
+            let suggAbilitato = ''
+            // END BUTTON
+            let endButtonTrial = document.createElement("button");
+            endButtonTrial.className = "fine"
+            endButtonTrial.setAttribute('data-balloon-pos', 'up')
+            endButtonTrial.setAttribute('onclick', 'location.href=\'form\'')
+            //CREATE CONTAINER
+            let buttonsRow = document.createElement('div');
+            buttonsRow.className = 'row';
+            let deck1 = document.createElement('ul');
+            deck1.className = 'deck';
+            deck1.id = 'deck1'
+            let deck2 = document.createElement('ul');
+            deck2.className = 'deck';
+            deck2.id = 'deck2'
+            // DEF
+            const symbols = ['ambulance', 'anchor', 'balance-scale', 'basketball-ball', 'bath', 'bed', 'beer', 'bicycle', 'binoculars', 'bomb', 'bolt', 'bug', 'car', 'chess-rook', 'chess-queen', 'cloud', 'fighter-jet', 'fire', 'gamepad', 'home', 'sun', 'volleyball-ball', 'chess-knight'];
+            let selectedCard = "", realCard = "",
+                score = 0, level = 0,
+                minutes = 0, seconds = 0, timeout, timeoutHelp,
+                nSequence = 3, nCard = 4, 
+                repetition = 0, indexMatchCard = 0,
+                sequenceCard = [], cards = [], matchCard = [], hideCards = [], wrongCards = [], hideCardsItem = []
+            const maxLevelTrial = 3            
+            changeLanguage(language_json)
+            selectBox.selectedIndex = indexMatchingText(selectBox, actual_language["language"])
+
+            function hideButton(answer){
+                //Modifica con salva nel file
+                yesButton.style.display="none";
+                noButton.style.display="none";
+
+                //Reset bubble
+                text_chat.innerHTML = ''
+                bubbleText = 0
+                text_chat.innerHTML = language_json.trial.bubbleText[0]
+                random_how = -1
+                disabilita_bottoni()
+            }
+
+            function indexMatchingText(box, text) {
+                for(let i=0; i<box.options.length;i++) {
+                    if (box.options[i].attributes[0].nodeValue === text){
+                        return i;
+                    }
+                }
+            }
+
+            function robotPressed(){
+                if(random_how==-1){
+                    abilita_bottoni()
+                }
+            }
+
+            function get_json(selectedValue){
+                if (selectedValue === "italian") {
+                    return resObj_it
+                }
+                else if(selectedValue === "english"){
+                    return resObj_en
+                }
+            }
+
+            function changeFunc(){
+                selectedValue = selectBox.options[selectBox.selectedIndex].value;
+                data["language"] = selectedValue
+                language_json = get_json(selectedValue)
+                changeLanguage(language_json)
+                $.ajax({
+                    url:"/language",
+                    type:"POST",
+                    contentType: "application/json",
+                    data: JSON.stringify(JSON.stringify(data))
+                });
+            }
+            
+            function set_image(img){
+                img.src=`{{url_for('static', filename='img/${language_json.src}/${language_json.trial.img[0]}.png')|unquote}}`
+            }
+
+            function changeLanguage(resObj_show){
+                document.getElementById("table_description").innerHTML = resObj_show.trial.table_description
+                
+                document.getElementById("end").innerHTML = resObj_show.trial.endTable[0]
+                document.getElementById("end").setAttribute('aria-label', resObj_show.trial.endTable[1])
+                document.getElementById("next").innerHTML = resObj_show.trial.nextTable[0]
+                document.getElementById("next").setAttribute('aria-label', resObj_show.trial.nextTable[1])
+
+                myText.innerHTML = resObj_show.trial.description[0] + level + ' \u00A0 \u00A0 \u00A0 ' + resObj_show.trial.description[1] + score + ' \u00A0 \u00A0 \u00A0 ' + resObj_show.trial.description[2] + minutes + ":" + seconds ;
+
+                let i = 0;
+                for (var key in resObj_show.trial.sugg) {
+                    buttons_array[i].innerHTML = resObj_show.trial.sugg[key][0]
+                    buttons_array[i].setAttribute('aria-label', resObj_show.trial.sugg[key][1])
+                    buttons_array[i].title = resObj_show.trial.sugg[key][1]
+                    i += 1  
+                }
+
+                endButtonTrial.innerHTML = resObj_show.trial.endButton[0]
+                endButtonTrial.setAttribute('aria-label', resObj_show.trial.endButton[1])
+                endButtonTrial.title = resObj_show.trial.endButton[1]
+
+                yesButton.innerHTML = resObj_show.trial.bubbleButton[0]
+                noButton.innerHTML = resObj_show.trial.bubbleButton[1]
+
+                if(bubbleText<2){
+                    text_chat.innerHTML = resObj_show.trial.bubbleText[bubbleText]
+                }else{
+                    const index = sugg.findIndex(object => {
+                        return object === suggAbilitato;
+                    });
+                    if(bubbleText==2){
+                        text_chat.innerHTML = resObj_show.trial.bubbleText[2] + resObj_show.trial.suggName[index] +'!'; /* The text */
+                    }else{
+                        text_chat.innerHTML = resObj_show.trial.bubbleText[3] + resObj_show.trial.suggName[index] + resObj_show.trial.bubbleText[4]; /* The text */
+                    }
+                }
+            }
+        </script>
+        <script src="{{ url_for('static', filename='js/third_trial.js') }}" charset="utf-8"></script>         
+    </body>
+</html>

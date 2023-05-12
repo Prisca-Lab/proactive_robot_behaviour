@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>
+            Memory Sequence Game
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/third_template.css') }}">
+        <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>  
+        <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="container_game" style="margin-top:50px;">
+                <img class="logo" src="{{url_for('static', filename='img/logo.png')}}" align="right"><br> 
+                <select style="margin-left:40px;" class="language" id="selectBox" onchange="changeFunc();">
+                    <option value="italian">Italian</option>
+                    <option value="english">English</option>
+                </select>
+                <p> <br><span id="description_unlock" style="margin-left: 40px; font: 20px/1 'Acme', sans-serif;"> </span>  </p> <br>
+                <div class="popup">
+                    <span class="popuptext" id="myPopup"> </span>
+                </div>
+                <ul id="ulMyText" style="margin:0 auto;" align="left"> <span id="myText" class="myText"> </span></ul>
+                <!-- <ul style="margin:0 auto;" align="left"><span class="myText2"> Ricorda di premere "FINE" per terminare il gioco. </span></ul> -->
+            </div>
+        </div> 
+        <img id="unlock" class="unlock2" src="{{url_for('static', filename='img/italian/robot2.png')}}" onclick="return robotPressed()">
+        <div id="js-text-block" style="display: none;" class="talk-bubble tri-right left-top">
+            <div class="talktext">
+              <p id="text_chat">Premi su di me per sbloccare gli aiuti!</p> 
+              <div class="row_bubble">
+                <button style="display: none;margin-right:20px;" id="si" onclick="return hideButton('Gradito')" type="button" class="btn btn-success playModal">Si</button>
+                <button style="display: none;" id="no" onclick="return hideButton('Non Gradito')" type="button" class="btn btn-danger endModal">No</button>  
+              </div>
+            </div>
+        </div>
+
+        <button type="button" id="modal" style="display: none;" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false"> </button>
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header backModal">
+                  <span id="table_description" class="modal-title textTable">Classifica Punteggi</span>
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body backModal">
+                    <div class="table-responsive">  
+                        <table class="cinereousTable" id="table">
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer backModal">
+                    <button id="next" onclick="return closeButtonClick()" type="button" class="btn btn-success playModal" data-dismiss="modal" aria-label='Livello Successivo' data-balloon-pos='up'>Avanti</button>
+                    <button id="end" onclick="return alertClick()" type="button" class="btn btn-danger endModal" data-dismiss="modal" aria-label='Termina Partita' data-balloon-pos='up'>Fine</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <button type="button" id="modal2" style="display: none;" class="btn btn-primary" data-toggle="modal" data-target="#myModal2" data-backdrop="static" data-keyboard="false"> </button>
+        <div class="modal" id="myModal2">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header backModal">
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body backModal">
+                    <span id="alert_description" class="modal-title textTable"> Sei sicuro di voler terminare il gioco?</span>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer backModal">
+                    <button id="yes" onclick="return endFunction()" type="button" class="btn btn-success playModal" data-dismiss="modal">Si</button>
+                    <button onclick="return closeButtonClick()" type="button" class="btn btn-danger endModal" data-dismiss="modal">No</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+        <button type="button" id="modal4" style="display: none;" class="btn btn-primary" data-toggle="modal" data-target="#myModal4" data-backdrop="static" data-keyboard="false"> </button>
+        <div class="modal" id="myModal4">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header backModal">
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body backModal">
+                    <span id="likeDescription" class="modal-title textTable"> Hai gradito il suggerimento attivato?</span>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer backModal">
+                    <button id="yes3" onclick="return hideButton('Gradito')" type="button" class="btn btn-success playModal" data-dismiss="modal">Si</button>
+                    <button onclick="return hideButton('Non Gradito')" type="button" class="btn btn-danger endModal" data-dismiss="modal">No</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <button type="button" id="modal3" style="display: none;" class="btn btn-primary" data-toggle="modal" data-target="#myModal3" data-backdrop="static" data-keyboard="false"> </button>
+        <div class="modal" id="myModal3">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header backModal">
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body backModal">
+                    <span id="alert_description2" class="modal-title textTable"> Sei sicuro di voler terminare il gioco?</span>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer backModal">
+                    <button id="yes2" onclick="return endFunction()" type="button" class="btn btn-success playModal" data-dismiss="modal">Si</button>
+                    <button onclick="return noPressed()" type="button" class="btn btn-danger endModal" data-dismiss="modal">No</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <script>
+            const players = {{players|tojson}}
+            const player = {{player|tojson}}
+            const data = {{data|tojson}}
+            const dgd_test = {{dgd_test|tojson}}
+            const resObj_it = {{resObj_it|tojson}}
+            const resObj_en = {{resObj_en|tojson}}
+            const actual_language = {{actual_language|tojson}}
+            let result_decision = {}, timeout_decision
+            //let come_richiedo = {"Notifica":0,"Suggerimento":1,"Intervento":2}
+            let come_richiedo2 = ['Notifica', 'Suggerimento', 'Intervento']
+            let come_richiedo3 = ['Notification', 'Tip', 'Action']
+            let data_lang = {}
+            let selectBox = document.getElementById("selectBox");
+            let selectedValue = actual_language["language"]
+            let language_json = get_json(selectedValue)
+            document.getElementById("description_unlock").innerHTML = language_json.game.description_unlock
+            // GET HTML ELEMENT 
+            const container = document.getElementsByClassName('container');
+            let popup = document.getElementById("myPopup");
+            let img = document.getElementById('unlock');
+            let myText = document.getElementById('myText');
+            let table = document.getElementById("table");
+            let buttonModal = document.getElementById("modal")
+            let buttonModal2 = document.getElementById("modal2")
+            let buttonModal3 = document.getElementById("modal3")
+            let buttonModal4 = document.getElementById("modal4")
+            let jsTextBlock = document.getElementById('js-text-block')
+            let text_chat = document.getElementById('text_chat')
+            let yesButton = document.getElementById("si");
+            let noButton = document.getElementById("no");
+            // CREATE HELP BUTTON
+            let betaButton1 = document.createElement("button");
+            let betaButton2 = document.createElement("button");
+            let betaButton3 = document.createElement("button");
+            let betaButton4 = document.createElement("button");
+            let buttons_array = new Array(betaButton1, betaButton2, betaButton3, betaButton4);
+            for (let i in buttons_array) {
+                buttons_array[i].className = "suggerimenti_disabilitati"
+                buttons_array[i].setAttribute('data-balloon-pos', 'up')
+            }
+            // END BUTTON
+            let endButton = document.createElement("button");
+            endButton.className = "fine"
+            endButton.setAttribute('data-balloon-pos', 'up')
+            //CREATE CONTAINER
+            let buttonsRow = document.createElement('div');
+            buttonsRow.className = 'row';
+            let deck1 = document.createElement('ul');
+            deck1.className = 'deck';
+            deck1.id = 'deck1'
+            let deck2 = document.createElement('ul');
+            deck2.className = 'deck';
+            deck2.id = 'deck2'
+            // DEF 
+            var source = new EventSource("/sse_furhat");
+            source.onmessage = function (event) {
+                console.log(event)
+                robotPressed()
+            };
+            
+            const symbols = ['futbol','thumbs-up','thumbs-down','images', 'camera', 'user-secret', 'map', 'motorcycle','leaf', 'lemon','ship', 'handshake', 'money-bill-alt', 'hospital', 'flag','ambulance', 'anchor', 'star', 'balance-scale', 'basketball-ball', 'bath', 'bed', 'beer', 'bicycle', 'binoculars', 'bomb', 'bolt', 'bug', 'car', 'chess-rook', 'chess-queen', 'cloud', 'fighter-jet', 'fire', 'gamepad', 'home', 'sun', 'train', 'volleyball-ball', 'chess-knight'];            
+            let file = {}, start, end, levelStartTime, dialogObj,
+                selectedCard = "", realCard = "",
+                score = 0, level = 0, scoreLevel = 0, mossa = 0, indexMatchCard = 0, 
+                minutes = 0, seconds = 0, timeout,
+                //nCard: deck
+                nSequence = 5, nCard = 5, repetition = 0,
+                sequenceCard = [], cards = [], matchCard = [], hideCards = [], hideCardsItem = [], wrongCards = [];
+                nWrongTot = 0, nWrongLevel = 0, nHelpTot = 0, nHelpLevel = 0,
+                indexTxt = 0, bubbleText=0, suggAbilitato = '', suggRichiesto = -1
+            let levelAdd = [4, 7, 9, 11, 13, 15, 17], levelRep = [5, 8, 10, 12, 14, 16, 18]
+            let sugg = ["None", "Hide Card", "Suggest Position", "Indicate Position", "Review Sequence"]
+            let sugg2 = ["Nessuno", "Nascondi Carta", "Suggerisci Posizione", "Indica Posizione", "Rivedi Sequenza"]
+            for (let i=1; i<sugg.length; i++){
+                buttons_array[i-1].id = sugg[i]
+            } 
+            const maxLevel = 18
+            // CHANGE LANGUAGE
+            changeLanguage(language_json)
+            selectBox.selectedIndex = indexMatchingText(selectBox, actual_language["language"])
+
+            function robotPressed(){
+                if(suggRichiesto==-1){
+                    abilita_bottoni()
+                    file["partita"]["livello"][level]["sequenza"][indexMatchCard]["mossa"][mossa]["tipo"] = "Aiuti Sbloccati"
+                    file["partita"]["livello"][level]["sequenza"][indexMatchCard]["mossa"][mossa]["orario"] = getTime() 
+                    mossa += 1
+                    file["partita"]["livello"][level]["sequenza"][indexMatchCard]["mossa"][mossa] = {}
+                }
+            }
+
+            function noPressed(){
+                file["partita"]["livello"][level]["sequenza"][indexMatchCard]["mossa"][mossa]["tipo"] = "No (continua)"
+                file["partita"]["livello"][level]["sequenza"][indexMatchCard]["mossa"][mossa]["orario"] = getTime() 
+                mossa += 1
+                file["partita"]["livello"][level]["sequenza"][indexMatchCard]["mossa"][mossa] = {}
+
+                timing()
+            }
+
+            function alertClick(){
+                if(level >= maxLevel){
+                    endFunction()
+                }else{
+                    buttonModal2.click()
+                }
+            }
+
+            function indexMatchingText(box, text) {
+                for(let i=0; i<box.options.length;i++) {
+                    if (box.options[i].attributes[0].nodeValue === text){
+                        return i;
+                    }
+                }
+            }
+
+            function get_json(selectedValue){
+                if (selectedValue === "italian") {
+                    return resObj_it
+                }
+                else if(selectedValue === "english"){
+                    return resObj_en
+                }
+            }
+
+            function changeFunc(){
+                selectedValue = selectBox.options[selectBox.selectedIndex].value;
+                data_lang["language"] = selectedValue
+                language_json = get_json(selectedValue)
+                changeLanguage(language_json)
+                $.ajax({
+                    url:"/language",
+                    type:"POST",
+                    contentType: "application/json",
+                    data: JSON.stringify(JSON.stringify(data_lang))
+                });
+            }
+
+            function set_image(img){
+                img.src=`{{url_for('static', filename='img/${language_json.src}/${language_json.game.img[0]}.png')|unquote}}`
+            }
+
+            function changeLanguage(resObj_show){
+                document.getElementById("description_unlock").innerHTML = resObj_show.game.description_unlock
+
+                document.getElementById("table_description").innerHTML = resObj_show.game.table_description
+
+                document.getElementById("alert_description").innerHTML = resObj_show.game.alertDescription[0]
+                document.getElementById("yes").innerHTML = resObj_show.game.alertDescription[1]
+                document.getElementById("alert_description2").innerHTML = resObj_show.game.alertDescription[0]
+                document.getElementById("yes2").innerHTML = resObj_show.game.alertDescription[1]
+                document.getElementById("likeDescription").innerHTML = resObj_show.game.likeDescription[0]
+                document.getElementById("yes3").innerHTML = resObj_show.game.likeDescription[1]
+
+                document.getElementById("end").innerHTML = resObj_show.game.endTable[0]
+                document.getElementById("end").setAttribute('aria-label', resObj_show.game.endTable[1])
+                document.getElementById("next").innerHTML = resObj_show.game.nextTable[0]
+                document.getElementById("next").setAttribute('aria-label', resObj_show.game.nextTable[1])
+
+                myText.innerHTML = resObj_show.game.description[0] + level + ' \u00A0 \u00A0 \u00A0 ' + resObj_show.game.description[1] + score + ' \u00A0 \u00A0 \u00A0 ' + resObj_show.game.description[2] + minutes + ":" + seconds ;
+
+                if(document.getElementById(resObj_show.game.img[0])){
+                    document.getElementById(resObj_show.game.img[0]).src=`{{url_for('static', filename='img/${resObj_show.src}/${resObj_show.game.img[0]}.png')|unquote}}`
+                }
+
+                let i = 0;
+                for (var key in resObj_show.game.sugg) {
+                    buttons_array[i].innerHTML = resObj_show.game.sugg[key][0]
+                    buttons_array[i].setAttribute('aria-label', resObj_show.game.sugg[key][1])
+                    buttons_array[i].title = resObj_show.game.sugg[key][1]
+                    i += 1  
+                }
+
+                endButton.innerHTML = resObj_show.game.endButton[0]
+                endButton.setAttribute('aria-label', resObj_show.game.endButton[1])
+                endButton.title = resObj_show.game.endButton[1]
+
+                yesButton.innerHTML = resObj_show.game.bubbleButton[0]
+                noButton.innerHTML = resObj_show.game.bubbleButton[1]
+
+                if(bubbleText<2){
+                    text_chat.innerHTML = resObj_show.game.bubbleText[bubbleText]
+                }else{
+                    const index = sugg.findIndex(object => {
+                        return object === suggAbilitato;
+                    });
+                    if(bubbleText==2){
+                        text_chat.innerHTML = resObj_show.game.bubbleText[2] + resObj_show.game.suggName[index] +'!'; /* The text */
+                    }else{
+                        text_chat.innerHTML = resObj_show.game.bubbleText[3] + resObj_show.game.suggName[index] + resObj_show.game.bubbleText[4]; /* The text */
+                    }
+                }
+   
+            }
+
+            function hideButton(answer){
+                //Modifica con salva nel file
+                yesButton.style.display="none";
+                noButton.style.display="none";
+
+                //Reset bubble
+                text_chat.innerHTML = ''
+                bubbleText = 0
+                text_chat.innerHTML = language_json.game.bubbleText[0] /* The text */
+                suggRichiesto = -1
+
+                file["partita"]["livello"][level]["sequenza"][indexMatchCard]["mossa"][mossa]["tipo"] = answer
+                file["partita"]["livello"][level]["sequenza"][indexMatchCard]["mossa"][mossa]["orario"] = getTime() 
+                mossa += 1
+                file["partita"]["livello"][level]["sequenza"][indexMatchCard]["mossa"][mossa] = {}
+                timing()
+
+                const index = sugg.findIndex(object => {
+                    return object === suggAbilitato;
+                });
+                if(index==1 || index==2){
+                    // Solo se il suggerimento era Nascondi Carta o Suggerisci Posizione
+                    let decision_net = {}
+                    decision_net['Sequenza'] = get_nSequenza()
+                    decision_net['Stato'] =  get_nStato()
+                    decision_net['Azione Precedente'] = "Aiuto"
+                    var selection = cards.filter(x => hideCardsItem.indexOf(x) === -1);
+                    decision_net['Carte'] = selection.length
+
+                    $.ajax({
+                        url:"/dn_test",
+                        type:"POST",
+                        contentType: "application/json",
+                        data: JSON.stringify(JSON.stringify(decision_net)),
+                        success: function(result) {
+                            dn_action(result)
+                        }
+                    });
+                }   
+            }
+        </script>
+        <script src="{{ url_for('static', filename='js/third_game.js') }}" charset="utf-8"></script>         
+    </body>
+</html>
+
+
+

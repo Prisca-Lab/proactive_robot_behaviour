@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>
+            Memory Sequence Game
+        </title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/third_template.css') }}">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script> 
+        <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>  
+        <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">
+    </head>
+    <body>    
+    <div class="container">
+        <div class="container_istruzioni" style="margin-top:50px;">
+            <select class="language" id="selectBox" onchange="changeFunc();">
+                <option value="italian">Italian</option>
+                <option value="english">English</option>
+            </select>
+            <img class="logoHome" src="{{url_for('static', filename='img/logo.png')}}" align="right"> <br> <br> <br>
+            <div style="margin-top: 1vw; background-color: #fffeacce;"> 
+                <div id="description0"> &#160 &#160 Per ogni livello memorizza la <i>sequenza</i> e ripetila. </div>
+                <img id="info5" style="width: 120px; margin-left:13vw;" src="{{url_for('static', filename='img/italian/info5.png')}}">
+                <img id="tutorial2" style="width: 400px; margin-left:1vw; margin-right:1vw; border: 3px solid #fffeacce;" src="{{url_for('static', filename='img/italian/tutorial2.gif')}}">
+                <img id="info6" style="margin-left:5px; width: 125px;" src="{{url_for('static', filename='img/italian/info6.png')}}" >    
+                <div id="description1"> &#160 &#160 Per completare ogni livello sarà possibile usufruire di diversi <i>suggerimenti</i>, a costo di una penalità di punteggio.
+                <br> &#160 &#160 Premi sui vari bottoni per saperne di più: </div>
+                <div class="products-container">
+                    <div id="sugg1" style="margin-left:110px; margin-top: 5px;" class="product" data-name="p-1" aria-label='-1 Punto' data-balloon-pos='down'>
+                        <h3>Nascondi Carta</h3>
+                    </div>
+                    <div id="sugg2" class="product" style="margin-top: 5px;" data-name="p-2" aria-label='-2 Punti' data-balloon-pos='down'>
+                        <h3>Suggerisci Posizione</h3>
+                    </div>
+                    <div id="sugg3" class="product" style="margin-top: 5px;" data-name="p-3" aria-label='-3 Punti' data-balloon-pos='down'>
+                        <h3>Indica Posizione</h3>
+                    </div>
+                    <div id="sugg4" class="product" style="margin-top: 5px;" data-name="p-4" aria-label='-4 Punti' data-balloon-pos='down'>
+                        <h3>Rivedi Sequenza</h3>
+                    </div>
+                </div>
+                <div id="description2" style="margin-top: 1vw;">&#160 &#160  Durante il gioco, attendi che il robot finisca di parlare prima di compiere qualsiasi azione. <br> &#160 &#160 Puoi sbloccare i suggerimenti dicendo verso il robot '<i><U>Sblocca gli aiuti</U></i> ' oppure potrà fornirteli direttamente lui.<br> <br></div>
+            </div>
+            <br>
+            <button id="inizia" style="margin-left: 430px;" type="button" class="prova" onclick="location.href='form'" aria-label='Inizia' data-balloon-pos='down'>Inizia</button> <br> <br>
+            
+            <div class="products-preview">
+                <div id="sugg1" class="preview" data-target="p-1"> <br>
+                   <img id="third_1" style="border: 3px solid #f1ef6b;" src="{{url_for('static', filename='img/italian/third_1.gif')}}">
+                   <h3>Nascondi Carta</h3>           
+                   <p>Elimina temporaneamente una carta tra quelle da selezionare.</p>
+                   Penalità: <span class="price"> -1 </span> <br> 
+                   <button type="button" class="end" align="right">Chiudi</button> 
+                </div>
+                <div id="sugg2" class="preview" data-target="p-2"> <br>
+                   <img id="third_2" style="border: 3px solid #f1ef6b;" src="{{url_for('static', filename='img/italian/third_2.gif')}}">
+                   <h3>Suggerisci Posizione</h3>           
+                   <p>Elimina temporaneamente carte a destra o a sinistra tra quelle da selezionare.</p>
+                    Penalità: <span class="price"> -2 </span> <br>
+                   <button type="button" class="end" align="right">Chiudi</button>
+                </div>
+                <div id="sugg3" class="preview" data-target="p-3"> <br>
+                   <img id="third_3" style="border: 3px solid #f1ef6b;" src="{{url_for('static', filename='img/italian/third_3.gif')}}">
+                   <h3>Indica Posizione</h3>           
+                   <p>Elimina temporaneamente tutte le carte tranne quella da selezionare.</p>
+                   Penalità: <span class="price"> -3 </span> <br>
+                   <button type="button" class="end" align="right">Chiudi</button>
+                </div>
+                <div id="sugg4" class="preview" data-target="p-4"> <br>
+                   <img id="third_4" style="border: 3px solid #f1ef6b;" src="{{url_for('static', filename='img/italian/third_4.gif')}}">
+                   <h3>Rivedi Sequenza</h3>           
+                   <p>Permette di rivedere l'intera sequenza di carte per 5 secondi.</p>
+                   Penalità: <span class="price"> -4 </span> <br>
+                   <button type="button" class="end" align="right">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const resObj_it = {{resObj_it|tojson}}
+        const resObj_en = {{resObj_en|tojson}}
+        const actual_language = {{actual_language|tojson}}
+        let previewContainer = document.querySelector('.products-preview');
+        let previewBox = previewContainer.querySelectorAll('.preview');
+        let button_start = document.getElementById('inizia');
+        let data = {}
+        let selectBox = document.getElementById("selectBox");
+        let selectedValue = actual_language["language"]
+        if(selectedValue != "italian"){
+            change(selectedValue)
+            selectBox.selectedIndex = indexMatchingText(selectBox, actual_language["language"])
+        }
+
+        function indexMatchingText(box, text) {
+            for (var i=0; i<box.options.length;i++) {
+                if (box.options[i].attributes[0].nodeValue == text){
+                    return i;
+                }
+            }
+        }
+
+        document.querySelectorAll('.products-container .product').forEach(product =>{
+        product.onclick = () =>{
+            previewContainer.style.display = 'flex';
+            let name = product.getAttribute('data-name');
+            previewBox.forEach(preview =>{
+            let target = preview.getAttribute('data-target');
+            if(name == target){
+                preview.classList.add('active');
+            }
+            });
+            button_start.style.display = 'none';
+        };
+        });
+
+        previewBox.forEach(close =>{
+            close.querySelector('.end').onclick = () =>{
+                close.classList.remove('active');
+                previewContainer.style.display = 'none';
+                button_start.style.display = 'block';
+            };
+        });
+
+        function changeLanguage(resObj_show){
+            document.getElementById("description0").innerHTML = resObj_show.home.description0;
+            document.getElementById("description1").innerHTML = resObj_show.home.description1;
+            document.getElementById("description2").innerHTML = resObj_show.home.description2;
+
+            button_start.innerHTML = resObj_show.home.startButton[0]
+            button_start.setAttribute('aria-label', resObj_show.home.startButton[1])
+
+            for(let i=0; i<resObj_show.home.img.length; i++){
+                document.getElementById(resObj_show.home.img[i]).src=`{{url_for('static', filename='img/${resObj_show.src}/${resObj_show.home.img[i]}.png')|unquote}}`
+            }
+
+            for(let i=0; i<resObj_show.home.gif.length; i++){
+                document.getElementById(resObj_show.home.gif[i]).src=`{{url_for('static', filename='img/${resObj_show.src}/${resObj_show.home.gif[i]}.gif')|unquote}}`
+            }
+
+            let product = document.getElementsByClassName("product")
+            for(let i=0; i<product.length; i++){
+                product[i].childNodes[1].innerHTML = resObj_show.home[product[i].id][0]
+                product[i].setAttribute('aria-label', resObj_show.home[product[i].id][1])
+            }
+
+            let preview = document.getElementsByClassName("preview")
+            for(let i=0; i<preview.length; i++){
+                preview[i].childNodes[5].innerHTML = resObj_show.home[preview[i].id][0]
+                preview[i].childNodes[7].innerHTML = resObj_show.home[preview[i].id][2]
+                preview[i].childNodes[8].data = resObj_show.home.penalty
+                preview[i].childNodes[13].innerHTML = resObj_show.home.close
+            }
+        }
+
+        function change(selectedValue){
+            if (selectedValue == "italian") {
+                changeLanguage(resObj_it)
+            }
+            else if(selectedValue == "english"){
+                changeLanguage(resObj_en)
+            }
+        }
+
+        function changeFunc(){
+            selectedValue = selectBox.options[selectBox.selectedIndex].value;
+            data["language"] = selectedValue
+            change(selectedValue)
+            $.ajax({
+                url:"/language",
+                type:"POST",
+                contentType: "application/json",
+                data: JSON.stringify(JSON.stringify(data))
+            });
+        }
+    </script>
+    </body>
+</html>

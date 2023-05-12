@@ -1,0 +1,148 @@
+{
+  "eta": "18",
+  "genere": "Maschio",
+  "formazione": "Secondario di primo grado",
+  "dgd_test": {
+    "Q1": 3,
+    "Q10": 3,
+    "Q11": 3,
+    "Q12": 3,
+    "Q13": 3,
+    "Q14": 3,
+    "Q15": 3,
+    "Q16": 3,
+    "Q2": 3,
+    "Q3": 3,
+    "Q4": 3,
+    "Q5": 3,
+    "Q6": 3,
+    "Q7": 3,
+    "Q8": 3,
+    "Q9": 3
+  },
+  "score_ranking": [
+    {
+      "level": 26,
+      "player": 4,
+      "score": 237
+    },
+    {
+      "level": 26,
+      "player": 8,
+      "score": 160
+    },
+    {
+      "level": 26,
+      "player": 10,
+      "score": 115
+    },
+    {
+      "level": 26,
+      "player": 7,
+      "score": 95
+    },
+    {
+      "level": 2,
+      "player": 2,
+      "score": 80
+    },
+    {
+      "level": 2,
+      "player": 1,
+      "score": 75
+    },
+    {
+      "level": 26,
+      "player": 6,
+      "score": 55
+    },
+    {
+      "level": 26,
+      "player": 9,
+      "score": 35
+    },
+    {
+      "level": 1,
+      "player": 12,
+      "score": 30
+    },
+    {
+      "level": 2,
+      "player": 3,
+      "score": 10
+    },
+    {
+      "level": 2,
+      "player": 0,
+      "score": 0
+    }
+  ],
+  "partita": {
+    "livello_max": 26,
+    "livello": {
+      "1": {
+        "n_sequenza": 4,
+        "n_carte": 4,
+        "ripetizione": 0,
+        "n_errori": 2,
+        "n_aiuti": 0,
+        "orario_inizio": "23:50:29:857",
+        "suggerimenti_abilitati": null,
+        "sequenza": {
+          "0": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "23:50:36:228"
+              }
+            }
+          },
+          "1": {
+            "mossa": {
+              "0": {
+                "tipo": "Errore",
+                "orario": "23:50:36:531"
+              },
+              "1": {
+                "tipo": "Errore",
+                "orario": "23:50:36:950"
+              },
+              "2": {
+                "tipo": "Corrispondenza",
+                "orario": "23:50:37:288"
+              }
+            }
+          },
+          "2": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "23:50:37:800"
+              }
+            }
+          },
+          "3": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "23:50:38:31"
+              }
+            }
+          }
+        },
+        "tempo_parziale": 8.173,
+        "orario_fine": "23:50:38:31",
+        "terminato": 1,
+        "score_parziale": 30
+      }
+    },
+    "orario_inizio": "23:50:29:857",
+    "orario_fine": "23:50:45:253",
+    "livello_raggiunto": 1,
+    "score_tot": 30,
+    "errori_tot": 2,
+    "aiuti_tot": 0,
+    "tempo_tot": 15.395
+  },
+  "partecipante": 3
+}
