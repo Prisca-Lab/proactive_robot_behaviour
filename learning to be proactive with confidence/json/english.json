@@ -1,0 +1,103 @@
+{
+    "src": "english",
+    "home": {
+      "img": [
+        "info", "info5", "info6"
+      ],
+      "gif": [
+        "tutorial2", "1", "2", "3", "4"
+      ],
+      "description": "\u00A0 \u00A0 Various <i> hints </i> \u00A0 will be available to complete each level, at the cost of a score penalty. <br> \u00A0 \u00A0 Click on the various buttons to find out more:",
+      "description2": "\u00A0 \u00A0 During the game, you can click on me to unlock hints or I can provide them directly. <br> \u00A0 \u00A0 Now try the game for a while or play directly:",
+      "description3": "Now try the game for a while or play directly:",
+      "trialButton": ["Trial", "Try the game"],
+      "playButton": ["Play", "Start playing"],
+      "sugg1": ["Hide Card",  "-1 Point", "Temporarily delete a card from those to be selected."],
+      "sugg2": ["Suggest Position", "-2 Points", "Temporarily delete cards to the right or left among those to be selected."],
+      "sugg3": ["Indicate Position", "-3 Points", "Temporarily delete all cards except the one to be selected."],
+      "sugg4": ["Review Sequence", "-4 Points", "Allows you to review the entire sequence of cards for 5 seconds."],
+      "penalty": "Penalty: ",
+      "close": "Close"
+    },
+    "form": {
+      "img": [
+        "form_img"
+      ],
+      "popupText":[
+        "Age must be a number.", "Age must be greater than 18.", "Age must be under 80." 
+      ],
+      "nextButton": ["Next", "Next"],
+      "playButton": ["Play", "Start playing"],
+      "form_span": ["Age", "Gender", "Educational level"],
+      "gender_value": ["Male", "Female", "Non binary", "I prefer not to specify"],
+      "education_value": ["Lower secondary school", "Upper secondary school", "University"],
+      "testPlayer": ["", 
+          "When I first start playing a game, I absolutely want and expect to beat the game.", 
+          "If I get stuck, I don't keep banging away at the puzzle. I leave that part of the game alone and come back with a fresh perspective.", 
+          "I generally enjoy messing around with the game, even if I'm not progressing.", 
+          "The game I'm playing is less important than the people I'm playing with.", 
+          "When I'm working on a particular challenge, I'll try it over and over again until I beat it.", 
+          "I want to feel challenged, and I don't mind the game adjusting to my level, as long as it doesn't become too easy.", 
+          "When I face a hard challenge, and I feel like I will be stuck trying it for ages, I quickly lose interest.", 
+          "Once I start looking after a game character, I feel bad if I don't take good care of them.", 
+          "I love it when I beat a really tough challenge - that makes everything worthwhile.", 
+          "I like games where I can make diverse plans and strategies. I sometimes enjoy a game I lose if I feel I played well and interestingly.", 
+          "Sometimes I get swept up in the experience of the game and completely forget about the goals I've been given.", 
+          "I'd much rather play with other people than play alone.", 
+          "Most of the time I won't stop playing until I know I've seen and beaten everything.", 
+          "The way I play is more important than winning, because I want to master the games I play.", 
+          "I usually have more than one game on the go... I don't need to finish one game to start another - a new experience is more rewarding than mastering something familiar.", 
+          "I'd prefer a game world with lots of characters to interact with, over a world with lots of details to explore."
+        ],
+      "description": "Indicate the degree to which you feel the statement applies to you, by clicking on the scale which from left to right goes '<i>Really doesn't apply</i>' to '<i>Totally applies</i>'.",
+      "agreement": "I agree that all the personal data which I provide here and all my responses will be recorded, <br> \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0 and can be used for research purposes anonymously way (Article 13 of the GDPR)."
+    },
+    "trial": {
+      "img": [
+        "robot2"
+      ],
+      "sugg": {
+        "sugg1": ["Hide Card",  "-1 Point"],
+        "sugg2": ["Suggest Position", "-2 Points"],
+        "sugg3": ["Indicate Position", "-3 Points"],
+        "sugg4": ["Review Sequence", "-4 Points"]
+      },
+      "suggName": ["Hide Card", "Suggest Position", "Indicate Position", "Review Sequence"],
+      "endButton": ["End Trial", "Finish the trial"],
+      "description": ["Level: ", "Score: ", "Time: "],
+      "table": ["Player", "Score", "You"],
+      "table_description" : "Scores Ranking",
+      "endTable": ["End", "End Trial"],
+      "nextTable": ["Next", "Next Level"],
+      "bubbleButton": ["Yes", "No"],
+      "bubbleText": ["Click on me to unlock hints!", "I think you could use some hint!", "I suggest you to use ", "I chose to use ", " for you! Did you like it?"]
+    },
+    "game": {
+      "img": [
+        "robot2"
+      ],
+      "sugg": {
+        "sugg1": ["Hide Card",  "-1 Point"],
+        "sugg2": ["Suggest Position", "-2 Points"],
+        "sugg3": ["Indicate Position", "-3 Points"],
+        "sugg4": ["Review Sequence", "-4 Points"]
+      },
+      "suggName": ["None", "Hide Card", "Suggest Position", "Indicate Position", "Review Sequence"],
+      "endButton": ["End Game", "Finish the game"],
+      "description": ["Level: ", "Score: ", "Time: "],
+      "table": ["Player", "Score", "You", "Unknown"],
+      "table_description" : "Scores Ranking",
+      "endTable": ["End", "End Game"],
+      "nextTable": ["Next", "Next Level"],
+      "alertDescription": ["Are you sure you want to end the game?", "Yes", "No"],
+      "bubbleButton": ["Yes", "No"],
+      "bubbleText": ["Click on me to unlock hints!", "I think you could use some hint!", "I suggest you to use ", "I chose to use ", " for you! Did you like it?"]
+    },
+    "end": {
+      "img": [
+        "end"
+      ],
+      "table": ["Player", "Score", "You", "Unknown"],
+      "playButton": ["Play Again", "Play Again"]
+    }
+  }

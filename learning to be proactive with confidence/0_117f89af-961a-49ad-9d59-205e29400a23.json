@@ -1,0 +1,45 @@
+{
+  "eta": "24",
+  "genere": "Femmina",
+  "formazione": "Universita",
+  "partita": {
+    "livello_max": 2,
+    "livello": {
+      "1": {
+        "n_sequenza": 4,
+        "n_carte": 4,
+        "ripetizione": 0,
+        "n_errori": 0,
+        "n_aiuti": 0,
+        "orario_inizio": "08:50:39:456",
+        "suggerimenti_abilitati": null,
+        "sequenza": {
+          "0": {
+            "mossa": {
+              "0": {
+                "tipo": "TerminaDurantePartita ",
+                "orario": "08:50:45:155"
+              },
+              "1": {
+                "tipo": "Si(Fine)",
+                "orario": "08:50:46:829"
+              }
+            }
+          }
+        },
+        "tempo_parziale": 7.372,
+        "orario_fine": "08:50:46:829",
+        "terminato": 0,
+        "score_parziale": 0
+      }
+    },
+    "orario_inizio": "08:50:39:456",
+    "orario_fine": "08:50:46:829",
+    "livello_raggiunto": 1,
+    "score_tot": 0,
+    "errori_tot": 0,
+    "aiuti_tot": 0,
+    "tempo_tot": 7.373
+  },
+  "partecipante": 0
+}

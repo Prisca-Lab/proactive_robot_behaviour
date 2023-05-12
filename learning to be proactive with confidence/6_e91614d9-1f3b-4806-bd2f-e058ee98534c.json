@@ -1,0 +1,154 @@
+{
+  "eta": "24",
+  "genere": "Femmina",
+  "formazione": "Universita",
+  "partita": {
+    "livello_max": 26,
+    "livello": {
+      "1": {
+        "n_sequenza": 4,
+        "n_carte": 4,
+        "ripetizione": 0,
+        "n_errori": 0,
+        "n_aiuti": 0,
+        "orario_inizio": "08:55:40:219",
+        "suggerimenti_abilitati": null,
+        "sequenza": {
+          "0": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "08:55:46:798"
+              }
+            }
+          },
+          "1": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "08:55:47:687"
+              }
+            }
+          },
+          "2": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "08:55:48:147"
+              }
+            }
+          },
+          "3": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "08:55:48:899"
+              }
+            }
+          }
+        },
+        "tempo_parziale": 8.68,
+        "orario_fine": "08:55:48:899",
+        "terminato": 1,
+        "score_parziale": 40
+      },
+      "2": {
+        "n_sequenza": 4,
+        "n_carte": 5,
+        "ripetizione": 0,
+        "n_errori": 3,
+        "n_aiuti": 5,
+        "orario_inizio": "08:55:52:540",
+        "suggerimenti_abilitati": "08:55:58:109",
+        "sequenza": {
+          "0": {
+            "mossa": {
+              "0": {
+                "tipo": "SuggerisciPosizione(suggerimento)",
+                "orario": "08:55:59:865",
+                "nCarte_nonNascoste": 5,
+                "nCarte_nonNascoste_dopo": 3
+              },
+              "1": {
+                "tipo": "Corrispondenza",
+                "orario": "08:56:01:757"
+              }
+            }
+          },
+          "1": {
+            "mossa": {
+              "0": {
+                "tipo": "SuggerisciPosizione(suggerimento)",
+                "orario": "08:56:03:238",
+                "nCarte_nonNascoste": 5,
+                "nCarte_nonNascoste_dopo": 3
+              },
+              "1": {
+                "tipo": "Corrispondenza",
+                "orario": "08:56:04:394"
+              }
+            }
+          },
+          "2": {
+            "mossa": {
+              "0": {
+                "tipo": "SuggerisciPosizione(suggerimento)",
+                "orario": "08:56:05:736",
+                "nCarte_nonNascoste": 5,
+                "nCarte_nonNascoste_dopo": 3
+              },
+              "1": {
+                "tipo": "Errore",
+                "orario": "08:56:06:826"
+              },
+              "2": {
+                "tipo": "Errore",
+                "orario": "08:56:08:209"
+              },
+              "3": {
+                "tipo": "Corrispondenza",
+                "orario": "08:56:09:170"
+              }
+            }
+          },
+          "3": {
+            "mossa": {
+              "0": {
+                "orario": "08:56:10:836",
+                "tipo": "NascondiCarta(suggerimento)",
+                "nCarte_nonNascoste": 5,
+                "nCarte_nonNascoste_dopo": 4
+              },
+              "1": {
+                "tipo": "Errore",
+                "orario": "08:56:12:495"
+              },
+              "2": {
+                "tipo": "IndicaPosizione(suggerimento)",
+                "orario": "08:56:13:623",
+                "nCarte_nonNascoste": 4,
+                "nCarte_nonNascoste_dopo": 1
+              },
+              "3": {
+                "tipo": "Corrispondenza",
+                "orario": "08:56:14:549"
+              }
+            }
+          }
+        },
+        "tempo_parziale": 22.009,
+        "orario_fine": "08:56:14:549",
+        "terminato": 1,
+        "score_parziale": 15
+      }
+    },
+    "orario_inizio": "08:55:40:219",
+    "orario_fine": "08:56:20:247",
+    "livello_raggiunto": 2,
+    "score_tot": 55,
+    "errori_tot": 3,
+    "aiuti_tot": 5,
+    "tempo_tot": 40.028
+  },
+  "partecipante": 6
+}

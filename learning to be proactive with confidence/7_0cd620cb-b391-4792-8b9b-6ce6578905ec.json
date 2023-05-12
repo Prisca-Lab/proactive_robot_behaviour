@@ -1,0 +1,179 @@
+{
+  "eta": "24",
+  "genere": "Femmina",
+  "formazione": "Universita",
+  "partita": {
+    "livello_max": 26,
+    "livello": {
+      "1": {
+        "n_sequenza": 4,
+        "n_carte": 4,
+        "ripetizione": 0,
+        "n_errori": 0,
+        "n_aiuti": 0,
+        "orario_inizio": "08:56:23:766",
+        "suggerimenti_abilitati": null,
+        "sequenza": {
+          "0": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "08:56:30:249"
+              }
+            }
+          },
+          "1": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "08:56:30:739"
+              }
+            }
+          },
+          "2": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "08:56:31:84"
+              }
+            }
+          },
+          "3": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "08:56:31:561"
+              }
+            }
+          }
+        },
+        "tempo_parziale": 7.795,
+        "orario_fine": "08:56:31:561",
+        "terminato": 1,
+        "score_parziale": 40
+      },
+      "2": {
+        "n_sequenza": 4,
+        "n_carte": 5,
+        "ripetizione": 0,
+        "n_errori": 3,
+        "n_aiuti": 0,
+        "orario_inizio": "08:56:35:62",
+        "suggerimenti_abilitati": null,
+        "sequenza": {
+          "0": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "08:56:41:420"
+              }
+            }
+          },
+          "1": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "08:56:42:271"
+              }
+            }
+          },
+          "2": {
+            "mossa": {
+              "0": {
+                "tipo": "Errore",
+                "orario": "08:56:42:773"
+              },
+              "1": {
+                "tipo": "Errore",
+                "orario": "08:56:43:596"
+              },
+              "2": {
+                "tipo": "Corrispondenza",
+                "orario": "08:56:44:296"
+              }
+            }
+          },
+          "3": {
+            "mossa": {
+              "0": {
+                "tipo": "Errore",
+                "orario": "08:56:44:625"
+              },
+              "1": {
+                "tipo": "Corrispondenza",
+                "orario": "08:56:45:596"
+              }
+            }
+          }
+        },
+        "tempo_parziale": 10.534,
+        "orario_fine": "08:56:45:596",
+        "terminato": 1,
+        "score_parziale": 25
+      },
+      "3": {
+        "n_sequenza": 4,
+        "n_carte": 5,
+        "ripetizione": 1,
+        "n_errori": 2,
+        "n_aiuti": 0,
+        "orario_inizio": "08:56:54:472",
+        "suggerimenti_abilitati": null,
+        "sequenza": {
+          "0": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "08:57:00:700"
+              }
+            }
+          },
+          "1": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "08:57:01:337"
+              }
+            }
+          },
+          "2": {
+            "mossa": {
+              "0": {
+                "tipo": "Corrispondenza",
+                "orario": "08:57:01:811"
+              }
+            }
+          },
+          "3": {
+            "mossa": {
+              "0": {
+                "tipo": "Errore",
+                "orario": "08:57:02:182"
+              },
+              "1": {
+                "tipo": "Errore",
+                "orario": "08:57:03:119"
+              },
+              "2": {
+                "tipo": "Corrispondenza",
+                "orario": "08:57:03:838"
+              }
+            }
+          }
+        },
+        "tempo_parziale": 9.366,
+        "orario_fine": "08:57:03:838",
+        "terminato": 1,
+        "score_parziale": 30
+      }
+    },
+    "orario_inizio": "08:56:23:766",
+    "orario_fine": "08:57:08:697",
+    "livello_raggiunto": 3,
+    "score_tot": 95,
+    "errori_tot": 5,
+    "aiuti_tot": 0,
+    "tempo_tot": 44.931
+  },
+  "partecipante": 7
+}

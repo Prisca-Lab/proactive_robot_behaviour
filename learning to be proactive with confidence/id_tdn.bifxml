@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+
+<BIF VERSION="0.3">
+<NETWORK>
+
+<!-- Variables -->
+<VARIABLE TYPE="nature">
+	<NAME>Request Time</NAME>
+	<PROPERTY>Request Time</PROPERTY>
+	<OUTCOME>[2;3[</OUTCOME>
+	<OUTCOME>[3;4[</OUTCOME>
+	<OUTCOME>[4;5]</OUTCOME>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Forecast</NAME>
+	<PROPERTY>Forecast</PROPERTY>
+	<OUTCOME>[2;3[</OUTCOME>
+	<OUTCOME>[3;4[</OUTCOME>
+	<OUTCOME>[4;5]</OUTCOME>
+</VARIABLE>
+
+<VARIABLE TYPE="decision">
+	<NAME>Decision Time</NAME>
+	<PROPERTY>Decision Time</PROPERTY>
+	<OUTCOME>[2;3[</OUTCOME>
+	<OUTCOME>[3;4[</OUTCOME>
+	<OUTCOME>[4;5]</OUTCOME>
+</VARIABLE>
+
+<VARIABLE TYPE="utility">
+	<NAME>Utility</NAME>
+	<PROPERTY>Utility</PROPERTY>
+	<OUTCOME>0</OUTCOME>
+</VARIABLE>
+
+<!-- Probability distributions -->
+<DEFINITION>
+	<FOR>Request Time</FOR>
+	<TABLE>0.353175 0.333333 0.313492 </TABLE>
+</DEFINITION>
+<DEFINITION>
+	<FOR>Forecast</FOR>
+	<GIVEN>Request Time</GIVEN>
+	<TABLE>0.8 0.2 0 0.2 0.7 0.1 0.3 0.3 0.4 </TABLE>
+</DEFINITION>
+<DEFINITION>
+	<FOR>Decision Time</FOR>
+	<GIVEN>Forecast</GIVEN>
+</DEFINITION>
+<DEFINITION>
+	<FOR>Utility</FOR>
+	<GIVEN>Request Time</GIVEN>
+	<GIVEN>Decision Time</GIVEN>
+	<TABLE>100 -50 -50 50 100 -50 0 50 100 </TABLE>
+</DEFINITION>
+
+</NETWORK>
+</BIF>
