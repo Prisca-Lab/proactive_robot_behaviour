@@ -8,14 +8,14 @@ Socially assistive robots represent a promising tool in assistive contexts to im
 
 ## In brief
 
-In order to discover how robots can be endowed with proactive behaviour, we devised a learning pipeline consisting of two main phases.
+In this work, we intend to investigate how robots could be endowed with proactive behaviour to predict the users’ needs and support them in assistive tasks. We propose a definition of a computational approach that can be used for incrementally learning what assistance, when humans require it, and how confidently the robot should take control and intervene. Hence, the final goal is to learn an **Influence Diagram (ID)** that represents an extension of Bayesian networks, used to model decision-making problems based on uncertain information with the criterion of maximum expected utility. To this end, we devised a data-driven framework, which can be generalised to any type of assistive task and consists of a pipeline of different learning phases.
 
 ![pipeline](./assets/pipeline.png)
 
-- Phase 1. [**Learning to be Proactive**](https://github.com/Prisca-Lab/proactive_robot_behaviour/tree/main/learning%20to%20be%20proactive), in which we request participants to play alone with the possibility of asking for assistance when necessary; 
-- Phase 2. [**Learning to be Proactive with Confidence**](https://github.com/Prisca-Lab/proactive_robot_behaviour/tree/main/learning%20to%20be%20proactive%20with%20confidence), in which participants play with the assistance of a proactive virtual-screen robot trained with the data collected in the previous phase; 
+- Phase 1. [**Learning to be Proactive**](https://github.com/Prisca-Lab/proactive_robot_behaviour/tree/main/learning%20to%20be%20proactive), in which we request users to interact with a virtual-screen robot from which four levels of assistance can be requested at any time. Since we want to understand what variables influence user requests and whether these depend on a user model, we ask users to complete a  Demographic Game Design (DGD) questionnaire before the execution of the assistive task. Two IDs are learnt after this stage, one that decides what assistance users need and another one that decides when to offer it;
+- Phase 2. [**Learning to be Proactive with Confidence**](https://github.com/Prisca-Lab/proactive_robot_behaviour/tree/main/learning%20to%20be%20proactive%20with%20confidence), in which we request users to interact with a proactive virtual-screen robot endowed with the IDs learnt in the previous stage. Here, we aim to learn the confidence level of the robot's actions. Specifically, in this stage, the robot provides assistance to the users with four increasing levels of confidence. Following this stage, an additional ID is trained enabling the robot to select, for each assistive action, the most suitable level of confidence; 
 
-Finally, we evaluate the learned system with the robot [**Proactive Robot with Confidence**](https://github.com/Prisca-Lab/proactive_robot_behaviour/tree/main/proactive%20robot%20with%20confidence), in which participants play with the Furhat robot endowed with the model fine-tuned in the second phase. 
+Finally, the resulting IDs (see the Figure below) are used to model the behaviour of a robot in an assistive task ([**Proactive Robot with Confidence**](https://github.com/Prisca-Lab/proactive_robot_behaviour/tree/main/proactive%20robot%20with%20confidence)). Here, participants played with the assistance of a Furhat robot.
 
 ![influence_diagram](./assets/ID.png)
 
